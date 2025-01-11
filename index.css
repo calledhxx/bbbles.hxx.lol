@@ -52,6 +52,7 @@ body{
     background-repeat: repeat;
     background-position: 0 0;
     background-size: 500px;
+
     z-index: -1;
 
     opacity: 0.04;

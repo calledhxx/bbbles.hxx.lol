@@ -13,7 +13,7 @@ let Squares = [
 
         Color: "3ca98a",
 
-        id : ""
+        id : "wel"
 
     },
     {
@@ -106,7 +106,7 @@ let Squares = [
         Color: "a849a8",
 
         id : "memes"
-    },
+    }
 ]
 
 let Bubbles = [
@@ -1116,6 +1116,7 @@ document.addEventListener("keydown",  function(event) {
     if (event.code === "Space" && !inUi) {
 
         let i=0;
+
         for(let y = 0; y < mapSize; y++){
             for (let x = 0; x < mapSize; x++){
                 if(i === atSquare) {
@@ -1130,7 +1131,12 @@ document.addEventListener("keydown",  function(event) {
                 i++;
             }
         }
-    };
+    }
+    if (event.code === "KeyC" && event.ctrlKey && !inUi) {
+        MessageIt("泡泡超連結！","已複製 「"+ BubbleInfos[atSquare].Name +"」的超連結。")
+        navigator.clipboard.writeText("https://hxx.lol/?bubble="+BubbleInfos[atSquare].id);
+        atSquare = -1;
+    }
 });
 
 

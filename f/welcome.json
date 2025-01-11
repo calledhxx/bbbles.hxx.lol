@@ -45,6 +45,27 @@
     "Line": false
   },
   {
+    "Line": true
+  },
+  {
+  "Title": "",
+  "Content": "當然，你也能將鼠標移動小泡泡上方，並按下空白建，即可為你移動至那！",
+  "Images": [
+
+  ],
+  "Links": [],
+  "Line": false
+},
+  {
+    "Title": "",
+    "Content": "該功能除了移動，也能複製泡泡的超連結，即 Ctrl + C",
+    "Images": [
+
+    ],
+    "Links": [],
+    "Line": false
+  },
+  {
     "Title": "最後，祝你探索愉快！",
     "Content": "",
     "Images": [
