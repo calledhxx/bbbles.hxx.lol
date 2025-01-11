@@ -682,6 +682,9 @@ document.addEventListener("DOMContentLoaded",   async function(){
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
     }
 
+    MessageIt("我們的餅乾 Cookie","本網站直接紀錄使用者的動作至Cookie裡，若有需求者，可直接清除本網站的Cookie。");
+
+
     let fit = Math.sqrt(Squares.length) - Math.floor(Math.sqrt(Squares.length)) === 0;
 
     mapSize = fit ? Math.sqrt(Squares.length) : Math.floor(Math.sqrt(Squares.length))+1;
@@ -776,6 +779,7 @@ document.addEventListener("DOMContentLoaded",   async function(){
     else{
         MessageIt("找不到泡泡。","鴨鴨說他很不好意思，他找不到你想要的泡泡。🤔");
     }
+
 
 
 });
