@@ -476,7 +476,7 @@ let a = async function(){
 
     //
 
-    tweenPos(document.getElementById("BackGround"),-MidX*20,-MidY*20,3,.1);
+     tweenPos(document.getElementById("BackGround"),-MidX*20,-MidY*20,3,.1);
 
 
 
@@ -904,7 +904,7 @@ async function ent(a){
 
         let LoadCase =  document.createElement('div');
         let LoadBox =  document.createElement('h1');
-        LoadBox.textContent = "🧋";
+        LoadBox.textContent = "🧐";
         LoadCase.style.display = "flex";
         LoadCase.style.justifyContent = "center";
         LoadCase.style.alignItems = "center";
@@ -914,8 +914,10 @@ async function ent(a){
 
 
 
+
         LoadCase.appendChild(LoadBox);
         document.getElementById("Page").appendChild(LoadCase);
+
 
         async function _blur(){
             for (let i = 0;i<10;i++){
@@ -933,10 +935,11 @@ async function ent(a){
 
 
         Http.onload = async function() {
+            await sleep(10);
+
             document.getElementById("Page").removeChild(LoadCase);
 
             if (inUi){
-                await sleep(10);
 
                 let Data = JSON.parse(Http.responseText);
                 for (let i = 0;i<Data.length;i++){

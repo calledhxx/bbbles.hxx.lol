@@ -380,81 +380,58 @@ h4{
 
 @keyframes LoadBoxAnim {
     0%{
-        border-radius: 30px;
-        transform: rotate(36deg);
+        Background-color: rgba(255, 0, 0, 0.2);
+        border-color:  rgba(255, 0, 0, 0.5);
+        box-shadow: rgba(255, 0, 0, 0.5) 0.1em 0.1em 1em;
+        text-shadow: rgba(255, 0, 0, 0.5) 0 0 .1em;
 
-        width: 150px;
-        height: 150px;
-    }
-    10%{
-        border-radius: 60px;
-        transform: rotate(72deg);
+        transform: rotate3d(1,1,1,0deg);
 
-        width: 150px;
-        height: 150px;
     }
     20%{
-        border-radius: 90px;
-        transform: rotate(108deg);
+        Background-color: rgba(255, 255, 0, 0.2);
+        border-color:  rgba(255, 255, 0, 0.5);
+        box-shadow:  rgba(255, 255, 0, 0.5) 0.1em 0.1em 1em;
+        text-shadow: rgba(255, 255, 0, 0.5) 0 0 .1em;
 
-        width: 150px;
-        height: 150px;
-    }
-    30%{
-        border-radius: 60px;
-        transform: rotate(144deg);
+        transform: rotate3d(1,1,1,-30deg);
 
-        width: 150px;
-        height: 150px;
     }
     40%{
-        border-radius: 90px;
-        transform: rotate(180deg);
+        Background-color: rgba(0, 255, 0, 0.2);
+        border-color:  rgba(0, 255, 0, 0.5);
+        box-shadow:  rgba(0, 255, 0, 0.5) 0.1em 0.1em 1em;
+        text-shadow: rgba(0, 255, 0, 0.5) 0 0 .1em;
 
-        width: 150px;
-        height: 150px;
-    }
-    50%{
-        border-radius: 60px;
-        transform: rotate(0deg);
+        transform: rotate3d(1,1,1,30deg);
 
-        width: 130px;
-        height: 130px;
     }
     60%{
-        border-radius: 30px;
-        transform: rotate(180deg);
+        Background-color: rgba(0, 255, 255, 0.2);
+        border-color:  rgba(0, 255, 255, 0.5);
+        box-shadow:  rgba(0, 255, 255, 0.5) 0.1em 0.1em 1em;
+        text-shadow:rgba(0, 255, 255, 0.5) 0 0 .1em;
 
-        width: 160px;
-        height: 160px;
-    }
-    70%{
-        border-radius: 60px;
-        transform: rotate(144deg);
+        transform: rotate3d(1,1,1,-30deg);
 
-        width: 150px;
-        height: 150px;
     }
     80%{
-        border-radius: 90px;
-        transform: rotate(108deg);
+        Background-color: rgba(0, 0, 255, 0.2);
+        border-color:  rgba(0, 0, 255, 0.5);
+        box-shadow:   rgba(0, 0, 255, 0.5) 0.1em 0.1em 1em;
+        text-shadow:  rgba(0, 0, 255, 0.5) 0 0 .1em;
 
-        width: 150px;
-        height: 150px;
-    }
-    90%{
-        border-radius: 60px;
-        transform: rotate(72deg);
+        transform: rotate3d(1,1,1,30deg);
 
-        width: 150px;
-        height: 150px;
     }
     100%{
-        border-radius: 30px;
-        transform: rotate(36deg);
+        Background-color: rgba(255, 0, 255, 0.2);
+        border-color: rgba(255, 0, 255, 0.5);
+        box-shadow:  rgba(255, 0, 255, 0.5) 0.1em 0.1em 1em;
+        text-shadow:rgba(255, 0, 255, 0.5) 0 0 .1em;
 
-        width: 150px;
-        height: 150px;
+        transform: rotate3d(1,1,1,0deg);
+
     }
 }
 
@@ -463,19 +440,19 @@ h4{
 
     width: 150px;
     height: 150px;
-    box-shadow:  rgb(255, 255, 255) 0.1em 0.1em 1em;
 
-    background-color: rgba(106, 106, 106, 0.49);
 
-    border: 5px solid rgba(255, 255, 255, 0.58);
-    animation: LoadBoxAnim 5s infinite ease-in-out;
+    border: 2px solid rgba(255, 255, 255, 0.58);
+    animation: LoadBoxAnim 1s infinite ease-in-out;
+
+    border-radius: 100%;
 
 
     display: flex;
     justify-content: center;
     align-items: center;
 
-    font-size: 80px;
+    font-size: 100px;
 
 }
 
