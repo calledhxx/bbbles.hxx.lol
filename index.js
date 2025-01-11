@@ -14,7 +14,7 @@ let Squares = [
         Color: "3ca98a",
 
         states:[
-            ["🌴","休閒"]
+            ["🌴","歡樂島"]
         ],
 
         id : "wel"
@@ -22,7 +22,7 @@ let Squares = [
     },
     {
 
-        Name:"个人档案",
+        Name:"個人檔案",
 
         Details:"Hxx的個人檔案。",
 
@@ -118,7 +118,20 @@ let Squares = [
         Page:"/f/minecraft.json",
         Color: "85471d",
 
-        id : "minecraft"
+        id : "minecraft",
+
+        states:[
+            [
+                "🍀","好信運"
+            ],
+            [
+                "🐳","「鯨」訝不已"
+            ],
+            [
+                "🪐","我不知道這是甚麼"
+            ]
+        ]
+
     },
     {
         Name:"芙莉蓮",
@@ -140,7 +153,19 @@ let Squares = [
         Page:"/f/memes.json",
         Color: "a849a8",
 
-        id : "memes"
+        id : "memes",
+
+        states:[
+            [
+                "⭐","精選"
+            ],
+            [
+                "🫠","好酷"
+            ],
+            [
+                "🫨","暈暈的"
+            ],
+        ]
     },
     {
         Name:"好吃馬鈴薯",
@@ -362,7 +387,7 @@ let LastMidY = 0;
 let LimSquares = {
     "Moved100" : {
 
-        Name:"100 Moveds!",
+        Name:"百步之途",
 
         Details:"致上最高的敬禮",
 
@@ -372,7 +397,14 @@ let LimSquares = {
 
         Color: "a93c74",
 
-        id : "m100"
+        id : "m100",
+
+        states:[
+            [
+                "🐫","駱駝都沒比你有耐力"
+            ]
+        ]
+
 
     },
     "msl" : {
