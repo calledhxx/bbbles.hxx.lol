@@ -383,7 +383,7 @@ let LimSquares = {
 
         Image:"/f/img/IMG_9453 - 複製.JPG",
 
-        Page:"/f/m100.json",
+        Page:"/f/msl.json",
 
         Color: "3b7ec2",
 
@@ -1225,6 +1225,7 @@ document.addEventListener("keydown", function(event) {
 
 let atSquare = -1;
 
+let lMSL = 0;
 document.addEventListener("keydown",  function(event) {
     if (event.key === "Enter" && !inUi) ent();
     if (event.key === "Escape" && inUi) ent();
@@ -1253,7 +1254,9 @@ document.addEventListener("keydown",  function(event) {
         atSquare = -1;
     }
 
-    if(event.code === "KeyL"){
+    if(event.code === "KeyL" && !lMSL){
+        lMSL++;
+        MessageIt("林...林....林亮教！","你觸發了不該觸發的東西...");
         creatBubble(LimSquares["msl"]);
         a();
     }
