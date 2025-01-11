@@ -143,6 +143,8 @@ async  function tweenMsgMove(obj,toY,sec,lag){
     obj.style.bottom = toY+"px";
 }
 
+let msgStyle3d="";
+
 async function MessageIt(Title,Reason){
 
     if (Title&&Reason){
@@ -171,14 +173,7 @@ async function MessageIt(Title,Reason){
         MessageContent2.classList.add("MessageContent2");
         MessageContent2.textContent = Reason;
 
-        /*
-        友宜如一場跨年煙火，在剛開始顯得激昂，接著在旁點綴的小事棚場，在到達最高點的巨型煙花後，沒有了後續的蹦蹦聲，那一切已結束，等待吧！
-
-        每個人對事物的解釋都不同，也不會有人以同樣角度看待同樣的事物，他們背後都是有自己私心的利益存在。會議中為了討好老闆，選擇站在巨人的肩膀上，以驕傲自態俯視在下方的人們，卻不知這巨人的眼睛是長在更高的地方，他所望向的，是你不會體會的。
-         */
-
-
-
+        AMessageCase.style.transform = msgStyle3d;
 
         document.getElementById("MessagesCase").appendChild(AMessageCase);
         AMessageCase.appendChild(MessageTouchBox);
@@ -1144,7 +1139,7 @@ let hasBeenMoved = false;
 let isHolding = false;
 
 document.addEventListener('mousedown', (m) => {
-    if (inUi) return;
+    if (inUi || m.button) return;
 
     isHolding = true;
     hasBeenMoved = false;
@@ -1156,7 +1151,7 @@ document.addEventListener('mousedown', (m) => {
 document.addEventListener('mouseup', (m) => {
 
     isHolding = false;
-    if (!hasBeenMoved || inUi)  {
+    if ((!hasBeenMoved || inUi )&& !m.button)  {
 
         if (m.target.classList[0] !== "MessageTouchBox")
         {
@@ -1296,8 +1291,10 @@ document.addEventListener('mousemove', (m) => {
                 let _X = ( MouseX -PosBoxX )-SizeBoxX_P2;
                 let _Y = (MouseY - PosBoxY )-SizeBoxY_P2;
 
+                msgStyle3d ="rotate3d("+(_X/SizeBoxX_P2*7)+" ,"+(_Y/SizeBoxY_P2*7)+ ","+((_X/SizeBoxX_P2)*(_Y/SizeBoxY_P2))+",18deg) translate(-50%,-50%)";
+
                 for (let i = 0;i<   document.getElementById("MessagesCase").children.length;i++){
-                    document.getElementById("MessagesCase").children[i].style.transform = "rotate3d("+(_X/SizeBoxX_P2*7)+" ,"+(_Y/SizeBoxY_P2*7)+ ","+((_X/SizeBoxX_P2)*(_Y/SizeBoxY_P2))+",18deg) translate(-50%,-50%)";
+                    document.getElementById("MessagesCase").children[i].style.transform = msgStyle3d;
                 }
             }
         }
