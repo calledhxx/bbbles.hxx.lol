@@ -13,6 +13,10 @@ let Squares = [
 
         Color: "3ca98a",
 
+        states:[
+            ["🌴","休閒"]
+        ],
+
         id : "wel"
 
     },
@@ -28,6 +32,10 @@ let Squares = [
 
         Color: "5d3ca9",
 
+        states:[
+            ["😗","好喔"]
+        ],
+
         id : "hxx"
 
     },
@@ -39,6 +47,11 @@ let Squares = [
         Page:"/f/7sf.json",
         Color: "c1842b",
 
+        states:[
+            ["🐟","魚國國王"],
+            ["🦄","「獨」家"]
+        ],
+
         id : "7sf"
 
     },
@@ -48,6 +61,12 @@ let Squares = [
         Image:"",
         Page:"/f/sry.json",
         Color: "4e46b8",
+
+        states:[
+            ["🦄","「獨」家"],
+            ["🔮","另個世界"],
+
+        ],
 
         id : "sry"
 
@@ -59,6 +78,12 @@ let Squares = [
         Page:"/f/uzi.json",
         Color: "7946b8",
 
+        states:[
+            ["🔮","另個世界"],
+            ["🤖","魔腦"],
+
+        ],
+
         id : "uzi"
 
     },
@@ -68,6 +93,12 @@ let Squares = [
         Image:"",
         Page:"/f/fshort.json",
         Color: "4699d9",
+
+        states:[
+            ["😶‍🌫️","羞羞"],
+            ["😖","腦羞"],
+
+        ],
 
         id : "fshort"
     },
@@ -96,6 +127,10 @@ let Squares = [
         Page:"/f/fll.json",
         Color: "56c4cb",
 
+        states:[
+            ["🥰","ㄒㄧˇ愛"],
+        ],
+
         id : "fll"
     },
     {
@@ -104,6 +139,21 @@ let Squares = [
         Image:"/f/img/IMG_E8875.JPG",
         Page:"/f/memes.json",
         Color: "a849a8",
+
+        id : "memes"
+    },
+    {
+        Name:"好吃馬鈴薯",
+        Details:"發霉的馬鈴薯。",
+        Image:"/f/img/472562154_578862491593902_4960175299312110464_n (1) - 複製.jpg",
+        Page:"/f/potato.json",
+        Color: "b06340",
+
+        states:[
+            ["🦄","「獨」家"],
+            ["🥶️","羞澀"],
+
+        ],
 
         id : "memes"
     }
@@ -396,8 +446,18 @@ let creatBubble = function(BubbleSqr){
 
 
 
+    let states = document.createElement("div");
 
+    states.classList.add("states");
 
+    if(BubbleSqr.states){
+        for (let s = 0;s<BubbleSqr.states.length;s++){
+            let aState = document.createElement("h6");
+            aState.innerText = BubbleSqr.states[s][0];
+            aState.classList.add("aState");
+            states.appendChild(aState);
+        }
+    }
 
     button.style.left = window.innerWidth/2+"px";
     button.style.top = window.innerHeight/2+"px";
@@ -417,6 +477,8 @@ let creatBubble = function(BubbleSqr){
 
     button.appendChild(h2);
     button.appendChild(h6);
+
+    button.appendChild(states);
 
     document.getElementById("Bubbles").appendChild(button);
 
@@ -555,6 +617,15 @@ let a = async function(){
                 document.getElementsByClassName(Bubbles[y][x])[0].children[2].style.fontSize = "13px";
 
 
+                for(let c = 0;c<document.getElementsByClassName(Bubbles[y][x])[0].children[3].children.length;c++){
+                    document.getElementsByClassName(Bubbles[y][x])[0].children[3].children[c].style.fontSize = "30px";
+                    document.getElementsByClassName(Bubbles[y][x])[0].children[3].children[c].style.marginLeft = "5px";
+                    document.getElementsByClassName(Bubbles[y][x])[0].children[3].children[c].style.marginRight = "5px";
+                }
+                document.getElementsByClassName(Bubbles[y][x])[0].children[3].style.top = "-20%";
+
+
+
 
                 if ( SqrData.Image === ""){
 
@@ -573,6 +644,15 @@ let a = async function(){
             }else{
                  tweenSize(document.getElementsByClassName(Bubbles[y][x])[0],50,50,.3,10,true);
                 xGen = 60;
+
+                for(let c = 0;c<document.getElementsByClassName(Bubbles[y][x])[0].children[3].children.length;c++){
+                    document.getElementsByClassName(Bubbles[y][x])[0].children[3].children[c].style.fontSize = "20px";
+                    document.getElementsByClassName(Bubbles[y][x])[0].children[3].children[c].style.marginLeft = "-1px";
+                    document.getElementsByClassName(Bubbles[y][x])[0].children[3].children[c].style.marginRight = "-1px";
+                }
+                document.getElementsByClassName(Bubbles[y][x])[0].children[3].style.top = "-40%";
+
+
 
                 document.getElementsByClassName(Bubbles[y][x])[0].children[1].textContent = SqrData.Name.substring(0,1);
                 document.getElementsByClassName(Bubbles[y][x])[0].children[1].style.fontSize = "26px";
@@ -712,6 +792,7 @@ document.addEventListener("DOMContentLoaded",   async function(){
         let h6 = document.createElement("h6");
         let img = document.createElement("img");
 
+        let states = document.createElement("div");
 
         h2.textContent = Squares[i].Name;
         button.style.backgroundColor = "#" + Squares[i].Color;
@@ -722,7 +803,6 @@ document.addEventListener("DOMContentLoaded",   async function(){
         button.style.boxShadow = "0 0  30px 3px  #"+hex(Squares[i].Color,"111111", +1);
 
 
-
         button.style.left = window.innerWidth/2+"px";
         button.style.top = window.innerHeight/2+"px";
 
@@ -730,6 +810,15 @@ document.addEventListener("DOMContentLoaded",   async function(){
         button.style.height = "50px";
 
         button.id = "bubble_"+Squares[i].id;
+
+        if(Squares[i].states){
+            for (let s = 0;s<Squares[i].states.length;s++){
+                let aState = document.createElement("h6");
+                aState.innerText = Squares[i].states[s][0];
+                aState.classList.add("aState");
+                states.appendChild(aState);
+            }
+        }
 
         button.classList.add("Square");
         button.classList.add(i);
@@ -740,6 +829,10 @@ document.addEventListener("DOMContentLoaded",   async function(){
 
         button.appendChild(h2);
         button.appendChild(h6);
+
+        states.classList.add("states");
+
+        button.appendChild(states);
 
 
         document.getElementById("Bubbles").appendChild(button);
@@ -1276,41 +1369,70 @@ document.addEventListener('mousemove', (m) => {
     }else{
 
         let doc = document.getElementById("doc")
+        let states = getDad(m.target,"aState");
         let Squ = getDad(m.target,"Square");
 
-        if (Squ){
+        if(states){
             doc.style.top = m.clientY + "px";
             doc.style.left = m.clientX + "px";
             doc.style.opacity = "1";
 
-            doc.innerText = BubbleInfos[Squ.classList[1]].Name;
+            doc.classList.add("IsState");
+
+            let title = "不明";
+
+            for(let l = 0;l<BubbleInfos[Squ.classList[1]].states.length; l++){
+                if(BubbleInfos[Squ.classList[1]].states[l][0] === states.innerText){
+                    title = BubbleInfos[Squ.classList[1]].states[l][1];
+                    break;
+                }
+            }
+
+            doc.innerText = title;
 
             atSquare = Number(Squ.classList[1]);
 
         }else{
-            atSquare = -1;
-            doc.style.opacity = "0";
 
-            if (m.target.classList[0] === "MessageTouchBox"){
-                let SizeBoxX_P2 =m.target.getBoundingClientRect().width/2;
-                let SizeBoxY_P2 =m.target.getBoundingClientRect().height/2;
+            doc.classList.remove("IsState");
 
-                let PosBoxX =m.target.getBoundingClientRect().left;
-                let PosBoxY =m.target.getBoundingClientRect().top;
 
-                let MouseX = m.clientX;
-                let MouseY = m.clientY;
+            if (Squ){
+                doc.style.top = m.clientY + "px";
+                doc.style.left = m.clientX + "px";
+                doc.style.opacity = "1";
 
-                let _X = ( MouseX -PosBoxX )-SizeBoxX_P2;
-                let _Y = (MouseY - PosBoxY )-SizeBoxY_P2;
 
-                msgStyle3d ="rotate3d("+(_X/SizeBoxX_P2*7)+" ,"+(_Y/SizeBoxY_P2*7)+ ","+((_X/SizeBoxX_P2)*(_Y/SizeBoxY_P2))+",18deg) translate(-50%,-50%)";
+                doc.innerText = BubbleInfos[Squ.classList[1]].Name;
 
-                for (let i = 0;i<   document.getElementById("MessagesCase").children.length;i++){
-                    document.getElementById("MessagesCase").children[i].style.transform = msgStyle3d;
+                atSquare = Number(Squ.classList[1]);
+
+            }else{
+                atSquare = -1;
+                doc.style.opacity = "0";
+
+                if (m.target.classList[0] === "MessageTouchBox"){
+                    let SizeBoxX_P2 =m.target.getBoundingClientRect().width/2;
+                    let SizeBoxY_P2 =m.target.getBoundingClientRect().height/2;
+
+                    let PosBoxX =m.target.getBoundingClientRect().left;
+                    let PosBoxY =m.target.getBoundingClientRect().top;
+
+                    let MouseX = m.clientX;
+                    let MouseY = m.clientY;
+
+                    let _X = ( MouseX -PosBoxX )-SizeBoxX_P2;
+                    let _Y = (MouseY - PosBoxY )-SizeBoxY_P2;
+
+                    msgStyle3d ="rotate3d("+(_X/SizeBoxX_P2*7)+" ,"+(_Y/SizeBoxY_P2*7)+ ","+((_X/SizeBoxX_P2)*(_Y/SizeBoxY_P2))+",18deg) translate(-50%,-50%)";
+
+                    for (let i = 0;i<   document.getElementById("MessagesCase").children.length;i++){
+                        document.getElementById("MessagesCase").children[i].style.transform = msgStyle3d;
+                    }
                 }
             }
         }
+
 
     }
 

@@ -309,7 +309,7 @@ h2{
 
 .Icon{
     margin-top: 3px;
-    z-index : 101;
+    z-index : 100;
     width: 0;
     height: auto;
 
@@ -654,7 +654,7 @@ h4{
     text-align: center;
 
     border-radius: 5px;
-    background-color: rgba(0, 0, 0, 0.62);
+    background-color: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(3px);
 
     transform: translate(10%,-100%);
@@ -663,4 +663,111 @@ h4{
     border: 2px solid rgba(255, 255, 255, 0.08);
 
     opacity:0;
+}
+
+.states{
+    z-index:101;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: auto;
+    min-height: 30px;
+    width: 50%;
+    position: absolute;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+}
+
+@keyframes aState {
+    0%{
+        transform: rotate3d(1,1,1,-10deg);
+    }
+    20%{
+        transform: rotate3d(1,1,1,0deg);
+
+    }
+    40%{
+        transform: rotate3d(1,1,1,10deg);
+
+    }
+    60%{
+        transform: rotate3d(1,1,1,0deg);
+
+    }
+    80%{
+        transform: rotate3d(1,1,1,-10deg);
+
+    }
+    100%{
+        transform: rotate3d(1,1,1,-10deg);
+
+    }
+}
+
+.aState{
+    text-shadow: black  1px 1px 10px;
+
+    animation: aState 10s infinite ease-in-out;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    width: 20px;
+    height: 20px;
+}
+
+.aState:hover{
+    text-shadow: #ffffff 1px 1px 10px;
+
+}
+
+@keyframes isState {
+    0%{
+        Background-color: rgba(255, 0, 0, 0.2);
+        border-color:  rgba(255, 0, 0, 0.5);
+        box-shadow: rgba(255, 0, 0, 0.5) 0.1em 0.1em 1em;
+        color:  rgba(255, 0, 0);
+    }
+    20%{
+        Background-color: rgba(255, 255, 0, 0.2);
+        border-color:  rgba(255, 255, 0, 0.5);
+        box-shadow:  rgba(255, 255, 0, 0.5) 0.1em 0.1em 1em;
+        color:  rgba(255, 255, 0);
+
+    }
+    40%{
+        Background-color: rgba(0, 255, 0, 0.2);
+        border-color:  rgba(0, 255, 0, 0.5);
+        box-shadow:  rgba(0, 255, 0, 0.5) 0.1em 0.1em 1em;
+        color:  rgba(0, 255, 0);
+
+    }
+    60%{
+        Background-color: rgba(0, 255, 255, 0.2);
+        border-color:  rgba(0, 255, 255, 0.5);
+        box-shadow:  rgba(0, 255, 255, 0.5) 0.1em 0.1em 1em;
+        color:  rgba(0, 255, 255);
+    }
+    80%{
+        Background-color: rgba(0, 0, 255, 0.2);
+        border-color:  rgba(0, 0, 255, 0.5);
+        box-shadow:   rgba(0, 0, 255, 0.5) 0.1em 0.1em 1em;
+        color:  rgba(0, 0, 255);
+    }
+    100%{
+        Background-color: rgba(255, 0, 255, 0.2);
+        border-color: rgba(255, 0, 255, 0.5);
+        box-shadow:  rgba(255, 0, 255, 0.5) 0.1em 0.1em 1em;
+        color: rgba(255, 0, 255);
+    }
+}
+
+.IsState{
+    animation: isState 1s infinite ease-in-out;
 }
