@@ -937,7 +937,7 @@ async function ent(a){
         Http.onload = async function() {
             await sleep(10);
 
-            document.getElementById("Page").removeChild(LoadCase);
+            LoadCase.remove();
 
             if (inUi){
 
