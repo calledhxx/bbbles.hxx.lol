@@ -155,8 +155,8 @@ let Squares = [
 
         ],
 
-        id : "memes"
-    }
+        id : "potato"
+    },
 ]
 
 let Bubbles = [
@@ -374,6 +374,27 @@ let LimSquares = {
 
         id : "m100"
 
+    },
+    "msl" : {
+
+        Name:"奇怪的林亮教!",
+
+        Details:"神來臨",
+
+        Image:"/f/img/IMG_9453 - 複製.JPG",
+
+        Page:"/f/m100.json",
+
+        Color: "3b7ec2",
+
+        id : "msl",
+
+        states:[
+            [
+                "😮","教的力量"
+            ]
+        ]
+
     }
 }
 
@@ -528,6 +549,8 @@ let a = async function(){
         document.cookie = "moved="+(Number(moved)+1)+";";
     }
 
+
+
     if (Number(moved)>=100 && !document.getElementById("bubble_m100")){
         creatBubble(LimSquares["Moved100"]);
         MessageIt("好像有東西？","有神秘泡泡出來了，趕緊找找！");
@@ -576,9 +599,8 @@ let a = async function(){
             let disY =  (MidX - x === 0 && MidY - y === 0) ? 60 : 0;
             let EasY = 0;
 
-            let SqrData = Squares[y*mapSize + x];
+            let SqrData = BubbleInfos[y*mapSize + x];
 
-            if(!SqrData) SqrData = getLim(x,y);
 
             if (SqrData){}else{break;}
 
@@ -874,17 +896,12 @@ document.addEventListener("DOMContentLoaded",   async function(){
     }
 
 
-
 });
 
 
 
 let inUi = false;
 
-function getLim(_x,_y){
-    if (Bubbles[_y][_x]){}else{return 0;};
-    if (document.getElementsByClassName(Bubbles[_y][_x])[0].id === "bubble_m100") return LimSquares["Moved100"];
-}
 
 let lastTimeEnt = new Date().getTime();
 
@@ -906,9 +923,7 @@ async function ent(a){
 
 
 
-    let SqrData = Squares[MidY*mapSize+MidX];
-
-    if(!SqrData) SqrData = getLim(MidX,MidY);
+    let SqrData = BubbleInfos[MidY*mapSize+MidX];
 
 
 
@@ -1236,6 +1251,11 @@ document.addEventListener("keydown",  function(event) {
         MessageIt("泡泡超連結！","已複製 「"+ BubbleInfos[atSquare].Name +"」的超連結。")
         navigator.clipboard.writeText("https://hxx.lol/?bubble="+BubbleInfos[atSquare].id);
         atSquare = -1;
+    }
+
+    if(event.code === "KeyL"){
+        creatBubble(LimSquares["msl"]);
+        a();
     }
 });
 
