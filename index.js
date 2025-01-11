@@ -895,8 +895,8 @@ async function ent(a){
         document.getElementById("Card").style.width = "auto";
 
          tweenSize(document.getElementById("Card"),
-            700,
-            500
+            800,
+            560
             ,.1,1);
 
 
