@@ -182,6 +182,7 @@ let Squares = [
 
         id : "potato"
     },
+
 ]
 
 let Bubbles = [
@@ -558,8 +559,8 @@ let a = async function(){
     let X = 0;
     let Y = 0;
 
-    let XfirstPix = Math.floor(window.innerWidth/2)-Math.floor((mapSize/2)*55);
-    let YfirstPix = Math.floor(window.innerHeight/2)-Math.floor((mapSize/2)*55);
+    let XfirstPix = Math.floor(window.innerWidth/2)-55//Math.floor((mapSize/2)*55);
+    let YfirstPix = Math.floor(window.innerHeight/2)-55//Math.floor((mapSize/2)*55);
 
     let xGen = 60;
     let yGen = 60;
