@@ -879,7 +879,7 @@ document.addEventListener("DOMContentLoaded",   async function(){
         button.classList.add(i);
 
         img.classList.add("Icon");
-
+        
         button.appendChild(img);
 
         button.appendChild(h2);
