@@ -1228,8 +1228,12 @@ let Y0 = 0;
 
 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
 
-    BubbleXSize = 800;
-    BubbleYSize = 1000;
+    if(/iPad/i.test(navigator.userAgent)){}else{
+        BubbleXSize = 800;
+        BubbleYSize = 1000;
+    }
+
+
 
     document.addEventListener('touchstart', (m) => {
         if (m.touches && m.touches.length === 1) {
