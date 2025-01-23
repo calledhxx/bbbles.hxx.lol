@@ -34,7 +34,7 @@ html{
 
 body{
     height: 100vh;
-    width: 100%;
+    width: 100vw;
     background: linear-gradient(130deg, #461745, #250a20, #250a20, #621a51);
 
 }

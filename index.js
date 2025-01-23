@@ -1228,8 +1228,8 @@ let Y0 = 0;
 
 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
 
-    BubbleXSize = 850;
-    BubbleYSize = 1320;
+    BubbleXSize = 800;
+    BubbleYSize = 1000;
 
     document.addEventListener('touchstart', (m) => {
         if (m.touches && m.touches.length === 1) {
@@ -1308,79 +1308,8 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
 
                     }
                     Y0 = y;
-
                 }
-            }else{
-
-                let doc = document.getElementById("doc")
-                let states = getDad(m.target,"aState");
-                let Squ = getDad(m.target,"Square");
-
-                if(states){
-                    doc.style.top = y + "px";
-                    doc.style.left = x + "px";
-                    doc.style.opacity = "1";
-
-                    doc.classList.add("IsState");
-
-                    let title = "不明";
-
-                    for(let l = 0;l<BubbleInfos[Squ.classList[1]].states.length; l++){
-                        if(BubbleInfos[Squ.classList[1]].states[l][0] === states.innerText){
-                            title = BubbleInfos[Squ.classList[1]].states[l][1];
-                            break;
-                        }
-                    }
-
-                    doc.innerText = title;
-
-                    atSquare = Number(Squ.classList[1]);
-
-                }else{
-
-                    doc.classList.remove("IsState");
-
-
-                    if (Squ){
-                        doc.style.top = y + "px";
-                        doc.style.left = x + "px";
-                        doc.style.opacity = "1";
-
-
-                        doc.innerText = BubbleInfos[Squ.classList[1]].Name;
-
-                        atSquare = Number(Squ.classList[1]);
-
-                    }else{
-                        atSquare = -1;
-                        doc.style.opacity = "0";
-
-                        if (m.target.classList[0] === "MessageTouchBox"){
-                            let SizeBoxX_P2 =m.target.getBoundingClientRect().width/2;
-                            let SizeBoxY_P2 =m.target.getBoundingClientRect().height/2;
-
-                            let PosBoxX =m.target.getBoundingClientRect().left;
-                            let PosBoxY =m.target.getBoundingClientRect().top;
-
-                            let MouseX = x;
-                            let MouseY = y;
-
-                            let _X = ( MouseX -PosBoxX )-SizeBoxX_P2;
-                            let _Y = (MouseY - PosBoxY )-SizeBoxY_P2;
-
-                            msgStyle3d ="rotate3d("+(_X/SizeBoxX_P2*7)+" ,"+(_Y/SizeBoxY_P2*7)+ ","+((_X/SizeBoxX_P2)*(_Y/SizeBoxY_P2))+",18deg) translate(-50%,-50%)";
-
-                            for (let i = 0;i<   document.getElementById("MessagesCase").children.length;i++){
-                                document.getElementById("MessagesCase").children[i].style.transform = msgStyle3d;
-                            }
-                        }
-                    }
-                }
-
-
             }
-
-
         }
     });
 
