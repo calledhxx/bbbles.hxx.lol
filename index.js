@@ -183,6 +183,11 @@ let Squares = [
         id : "potato"
     },
 
+
+
+
+
+
 ]
 
 let Bubbles = [
@@ -814,8 +819,7 @@ function hex(a,b,c){
 }
 
 document.addEventListener("DOMContentLoaded",   async function(){
-    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
-    }
+
 
     MessageIt("我們的餅乾 Cookie","本網站直接紀錄使用者的動作至Cookie裡，若有需求者，可直接清除本網站的Cookie。");
 
@@ -1210,290 +1214,497 @@ async function ent(a){
 
 }
 
-document.addEventListener("keydown", function(event) {
-    if (inUi) return;
-    if (event.key === "ArrowUp") {
-
-        if ( MidY-1 >= 0 && (typeof Bubbles[MidY-1][MidX]) === "number" ){
-            MidY += -1;
-        }else{
-
-            return;
-        }
-
-
-        a();
-    }
-    if (event.key === "ArrowDown") {
-        if ( MidY+1<=mapSize-1 &&  typeof Bubbles[MidY+1][MidX]  === "number" ){
-            MidY += 1;
-        }else{
-            return;
-        }
-
-        a();
-    }
-
-    if (event.key === "ArrowLeft") {
-        if (  MidX-1 >= 0 && typeof  Bubbles[MidY][MidX-1] === "number"){
-            MidX += -1;
-        }else{
-            return;
-        }
-
-        a();
-    }
-    if (event.key === "ArrowRight") {
-        if ( MidX+1<=mapSize-1  && typeof  Bubbles[MidY][MidX+1] === "number"){
-            MidX += 1;
-        }else{
-            return;
-        }
-
-        a();
-    }
-
-
-});
-
-let atSquare = -1;
-
-let lMSL = 0;
-document.addEventListener("keydown",  function(event) {
-    if (event.key === "Enter" && !inUi) ent();
-    if (event.key === "Escape" && inUi) ent();
-    if (event.code === "Space" && !inUi) {
-
-        let i=0;
-
-        for(let y = 0; y < mapSize; y++){
-            for (let x = 0; x < mapSize; x++){
-                if(i === atSquare) {
-                    MidX = x;
-                    MidY = y;
-
-                    atSquare = -1;
-
-                    a();
-                    break;
-                }
-                i++;
-            }
-        }
-    }
-    if (event.code === "KeyC" && event.ctrlKey && !inUi) {
-        MessageIt("泡泡超連結！","已複製 「"+ BubbleInfos[atSquare].Name +"」的超連結。")
-        navigator.clipboard.writeText("https://hxx.lol/?bubble="+BubbleInfos[atSquare].id);
-        atSquare = -1;
-    }
-
-    if(event.code === "KeyL" && !lMSL){
-        lMSL++;
-        MessageIt("林...林....林亮教！","你觸發了不該觸發的東西...");
-        creatBubble(LimSquares["msl"]);
-        a();
-    }
-});
 
 
 
 let hasBeenMoved = false;
 let isHolding = false;
 
-document.addEventListener('mousedown', (m) => {
-    if (inUi || m.button) return;
 
-    isHolding = true;
-    hasBeenMoved = false;
 
-    X0 = m.clientX;
-    Y0 = m.clientY;
 
-});
-document.addEventListener('mouseup', (m) => {
 
-    isHolding = false;
-    if ((!hasBeenMoved || inUi )&& !m.button)  {
+if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+    document.addEventListener('touchstart', (m) => {
+        if (m.touches && m.touches.length === 1) {
+            const touch = m.touches[0];
+            const x = touch.clientX;
+            const y = touch.clientY;
 
-        if (m.target.classList[0] !== "MessageTouchBox")
-        {
-            let sa = function(zzz){
+            if (inUi || m.button) return;
 
-                if (zzz) {
-                    if(zzz.id === "body")return false;
-                }else{
-                    return false;
+            isHolding = true;
+            hasBeenMoved = false;
+
+            X0 = x;
+            Y0 = y;
+        }
+    });
+
+    document.addEventListener('touchmove', (m) => {
+        if (m.touches && m.touches.length === 1) {
+            const touch = m.touches[0];
+            const x = touch.clientX;
+            const y = touch.clientY;
+
+            if (isHolding){
+                if (inUi){
+                    X0 = x;
+                    Y0 = y;
+
+                    return;
                 }
 
-                if (zzz.id === "Card" ){
-
-                    return true;
-                }else{
-
-                    return sa( zzz.parentElement);
+                if (X0&&Y0){}else{
+                    X0 = x;
+                    Y0 = y;
                 }
-            }
-            if (sa( m.target)){
 
+
+                if (Math.abs(x - X0  ) > 75){
+                    let db =  X0-x > 0;
+                    let IF = db?(MidX+1<mapSize ? (typeof  Bubbles[MidY][MidX+1]) === "number":false): (MidX-1>=0 ? (typeof  Bubbles[MidY][MidX-1]) === "number" : false);
+
+                    hasBeenMoved = true;
+
+
+                    if (IF){
+
+                        if (db){
+                            MidX=MidX+1;
+                        }else{
+                            MidX=MidX-1;
+
+                        }
+
+                        a();
+
+                    }
+                    X0 = x;
+
+
+                }
+
+                if (Math.abs(y -Y0) > 75){
+                    let db =  Y0-y > 0;
+                    let IF = db?(MidY+1<mapSize ? (typeof  Bubbles[MidY+1][MidX]) === "number":false): (MidY-1>=0 ? (typeof  Bubbles[MidY-1][MidX]) === "number" : false);
+
+
+                    hasBeenMoved = true;
+
+
+                    if (IF){
+                        if (db){
+                            MidY=MidY+1;
+                        }else{
+                            MidY=MidY-1;
+
+                        }
+
+                        a();
+
+
+                    }
+                    Y0 = y;
+
+                }
             }else{
 
-                ent();
+                let doc = document.getElementById("doc")
+                let states = getDad(m.target,"aState");
+                let Squ = getDad(m.target,"Square");
+
+                if(states){
+                    doc.style.top = y + "px";
+                    doc.style.left = x + "px";
+                    doc.style.opacity = "1";
+
+                    doc.classList.add("IsState");
+
+                    let title = "不明";
+
+                    for(let l = 0;l<BubbleInfos[Squ.classList[1]].states.length; l++){
+                        if(BubbleInfos[Squ.classList[1]].states[l][0] === states.innerText){
+                            title = BubbleInfos[Squ.classList[1]].states[l][1];
+                            break;
+                        }
+                    }
+
+                    doc.innerText = title;
+
+                    atSquare = Number(Squ.classList[1]);
+
+                }else{
+
+                    doc.classList.remove("IsState");
+
+
+                    if (Squ){
+                        doc.style.top = y + "px";
+                        doc.style.left = x + "px";
+                        doc.style.opacity = "1";
+
+
+                        doc.innerText = BubbleInfos[Squ.classList[1]].Name;
+
+                        atSquare = Number(Squ.classList[1]);
+
+                    }else{
+                        atSquare = -1;
+                        doc.style.opacity = "0";
+
+                        if (m.target.classList[0] === "MessageTouchBox"){
+                            let SizeBoxX_P2 =m.target.getBoundingClientRect().width/2;
+                            let SizeBoxY_P2 =m.target.getBoundingClientRect().height/2;
+
+                            let PosBoxX =m.target.getBoundingClientRect().left;
+                            let PosBoxY =m.target.getBoundingClientRect().top;
+
+                            let MouseX = x;
+                            let MouseY = y;
+
+                            let _X = ( MouseX -PosBoxX )-SizeBoxX_P2;
+                            let _Y = (MouseY - PosBoxY )-SizeBoxY_P2;
+
+                            msgStyle3d ="rotate3d("+(_X/SizeBoxX_P2*7)+" ,"+(_Y/SizeBoxY_P2*7)+ ","+((_X/SizeBoxX_P2)*(_Y/SizeBoxY_P2))+",18deg) translate(-50%,-50%)";
+
+                            for (let i = 0;i<   document.getElementById("MessagesCase").children.length;i++){
+                                document.getElementById("MessagesCase").children[i].style.transform = msgStyle3d;
+                            }
+                        }
+                    }
+                }
+
+
             }
+
+
+        }
+    });
+
+    document.addEventListener('touchend', (m) => {
+        if (m.touches && m.touches.length === 1) {
+            console.log(m.touches);
+            const touch = m.touches[0];
+            const x = touch.clientX;
+            const y = touch.clientY;
+
+            isHolding = false;
+            if ((!hasBeenMoved || inUi )&& !m.button)  {
+
+                if (m.target.classList[0] !== "MessageTouchBox")
+                {
+                    let sa = function(zzz){
+
+                        if (zzz) {
+                            if(zzz.id === "body")return false;
+                        }else{
+                            return false;
+                        }
+
+                        if (zzz.id === "Card" ){
+
+                            return true;
+                        }else{
+
+                            return sa( zzz.parentElement);
+                        }
+                    }
+                    if (sa( m.target)){
+
+                    }else{
+
+                        ent();
+                    }
+                }
+
+            }
+
+        }
+    });
+}else{
+    document.addEventListener('mousedown', (m) => {
+        if (inUi || m.button) return;
+
+        isHolding = true;
+        hasBeenMoved = false;
+
+        X0 = m.clientX;
+        Y0 = m.clientY;
+    });
+
+
+    document.addEventListener("keydown", function(event) {
+        if (inUi) return;
+        if (event.key === "ArrowUp") {
+
+            if ( MidY-1 >= 0 && (typeof Bubbles[MidY-1][MidX]) === "number" ){
+                MidY += -1;
+            }else{
+
+                return;
+            }
+
+
+            a();
+        }
+        if (event.key === "ArrowDown") {
+            if ( MidY+1<=mapSize-1 &&  typeof Bubbles[MidY+1][MidX]  === "number" ){
+                MidY += 1;
+            }else{
+                return;
+            }
+
+            a();
         }
 
+        if (event.key === "ArrowLeft") {
+            if (  MidX-1 >= 0 && typeof  Bubbles[MidY][MidX-1] === "number"){
+                MidX += -1;
+            }else{
+                return;
+            }
+
+            a();
+        }
+        if (event.key === "ArrowRight") {
+            if ( MidX+1<=mapSize-1  && typeof  Bubbles[MidY][MidX+1] === "number"){
+                MidX += 1;
+            }else{
+                return;
+            }
+
+            a();
+        }
+
+
+    });
+
+    let atSquare = -1;
+
+    let lMSL = 0;
+    document.addEventListener("keydown",  function(event) {
+        if (event.key === "Enter" && !inUi) ent();
+        if (event.key === "Escape" && inUi) ent();
+        if (event.code === "Space" && !inUi) {
+
+            let i=0;
+
+            for(let y = 0; y < mapSize; y++){
+                for (let x = 0; x < mapSize; x++){
+                    if(i === atSquare) {
+                        MidX = x;
+                        MidY = y;
+
+                        atSquare = -1;
+
+                        a();
+                        break;
+                    }
+                    i++;
+                }
+            }
+        }
+        if (event.code === "KeyC" && event.ctrlKey && !inUi) {
+            MessageIt("泡泡超連結！","已複製 「"+ BubbleInfos[atSquare].Name +"」的超連結。")
+            navigator.clipboard.writeText("https://hxx.lol/?bubble="+BubbleInfos[atSquare].id);
+            atSquare = -1;
+        }
+
+        if(event.code === "KeyL" && !lMSL){
+            lMSL++;
+            MessageIt("林...林....林亮教！","你觸發了不該觸發的東西...");
+            creatBubble(LimSquares["msl"]);
+            a();
+        }
+    });
+
+    document.addEventListener('mouseup', (m) => {
+
+        isHolding = false;
+        if ((!hasBeenMoved || inUi )&& !m.button)  {
+
+            if (m.target.classList[0] !== "MessageTouchBox")
+            {
+                let sa = function(zzz){
+
+                    if (zzz) {
+                        if(zzz.id === "body")return false;
+                    }else{
+                        return false;
+                    }
+
+                    if (zzz.id === "Card" ){
+
+                        return true;
+                    }else{
+
+                        return sa( zzz.parentElement);
+                    }
+                }
+                if (sa( m.target)){
+
+                }else{
+
+                    ent();
+                }
+            }
+
+        }
+
+    });
+
+
+    let X0 = 0;
+    let Y0 = 0;
+
+
+    let getDad = function (c,b){
+        if (c.classList[0] === b){
+            return c;
+        }else{
+            if(c.id === "body") return false;
+            return getDad(c.parentElement,b);
+        }
     }
 
-});
+    document.addEventListener('mousemove', (m) => {
 
+        if (isHolding){
+            if (inUi){
+                X0 = m.clientX;
+                Y0 = m.clientY;
 
-let X0 = 0;
-let Y0 = 0;
-
-
-let getDad = function (c,b){
-    if (c.classList[0] === b){
-        return c;
-    }else{
-        if(c.id === "body") return false;
-        return getDad(c.parentElement,b);
-    }
-}
-
-document.addEventListener('mousemove', (m) => {
-
-    if (isHolding){
-        if (inUi){
-            X0 = m.clientX;
-            Y0 = m.clientY;
-
-            return;
-        }
-
-        if (X0&&Y0){}else{
-            X0 = m.clientX;
-            Y0 = m.clientY;
-        }
-
-
-        if (Math.abs(m.clientX - X0  ) > 75){
-            let db =  X0-m.clientX > 0;
-            let IF = db?(MidX+1<mapSize ? (typeof  Bubbles[MidY][MidX+1]) === "number":false): (MidX-1>=0 ? (typeof  Bubbles[MidY][MidX-1]) === "number" : false);
-
-            hasBeenMoved = true;
-
-
-            if (IF){
-
-                if (db){
-                    MidX=MidX+1;
-                }else{
-                    MidX=MidX-1;
-
-                }
-
-                a();
-
+                return;
             }
-            X0 = m.clientX;
+
+            if (X0&&Y0){}else{
+                X0 = m.clientX;
+                Y0 = m.clientY;
+            }
 
 
-        }
+            if (Math.abs(m.clientX - X0  ) > 75){
+                let db =  X0-m.clientX > 0;
+                let IF = db?(MidX+1<mapSize ? (typeof  Bubbles[MidY][MidX+1]) === "number":false): (MidX-1>=0 ? (typeof  Bubbles[MidY][MidX-1]) === "number" : false);
 
-        if (Math.abs(m.clientY -Y0) > 75){
-            let db =  Y0-m.clientY > 0;
-            let IF = db?(MidY+1<mapSize ? (typeof  Bubbles[MidY+1][MidX]) === "number":false): (MidY-1>=0 ? (typeof  Bubbles[MidY-1][MidX]) === "number" : false);
-
-
-            hasBeenMoved = true;
+                hasBeenMoved = true;
 
 
-            if (IF){
-                if (db){
-                    MidY=MidY+1;
-                }else{
-                    MidY=MidY-1;
+                if (IF){
+
+                    if (db){
+                        MidX=MidX+1;
+                    }else{
+                        MidX=MidX-1;
+
+                    }
+
+                    a();
 
                 }
-
-                a();
+                X0 = m.clientX;
 
 
             }
-            Y0 = m.clientY;
 
-        }
-    }else{
+            if (Math.abs(m.clientY -Y0) > 75){
+                let db =  Y0-m.clientY > 0;
+                let IF = db?(MidY+1<mapSize ? (typeof  Bubbles[MidY+1][MidX]) === "number":false): (MidY-1>=0 ? (typeof  Bubbles[MidY-1][MidX]) === "number" : false);
 
-        let doc = document.getElementById("doc")
-        let states = getDad(m.target,"aState");
-        let Squ = getDad(m.target,"Square");
 
-        if(states){
-            doc.style.top = m.clientY + "px";
-            doc.style.left = m.clientX + "px";
-            doc.style.opacity = "1";
+                hasBeenMoved = true;
 
-            doc.classList.add("IsState");
 
-            let title = "不明";
+                if (IF){
+                    if (db){
+                        MidY=MidY+1;
+                    }else{
+                        MidY=MidY-1;
 
-            for(let l = 0;l<BubbleInfos[Squ.classList[1]].states.length; l++){
-                if(BubbleInfos[Squ.classList[1]].states[l][0] === states.innerText){
-                    title = BubbleInfos[Squ.classList[1]].states[l][1];
-                    break;
+                    }
+
+                    a();
+
+
                 }
+                Y0 = m.clientY;
+
             }
-
-            doc.innerText = title;
-
-            atSquare = Number(Squ.classList[1]);
-
         }else{
 
-            doc.classList.remove("IsState");
+            let doc = document.getElementById("doc")
+            let states = getDad(m.target,"aState");
+            let Squ = getDad(m.target,"Square");
 
-
-            if (Squ){
+            if(states){
                 doc.style.top = m.clientY + "px";
                 doc.style.left = m.clientX + "px";
                 doc.style.opacity = "1";
 
+                doc.classList.add("IsState");
 
-                doc.innerText = BubbleInfos[Squ.classList[1]].Name;
+                let title = "不明";
+
+                for(let l = 0;l<BubbleInfos[Squ.classList[1]].states.length; l++){
+                    if(BubbleInfos[Squ.classList[1]].states[l][0] === states.innerText){
+                        title = BubbleInfos[Squ.classList[1]].states[l][1];
+                        break;
+                    }
+                }
+
+                doc.innerText = title;
 
                 atSquare = Number(Squ.classList[1]);
 
             }else{
-                atSquare = -1;
-                doc.style.opacity = "0";
 
-                if (m.target.classList[0] === "MessageTouchBox"){
-                    let SizeBoxX_P2 =m.target.getBoundingClientRect().width/2;
-                    let SizeBoxY_P2 =m.target.getBoundingClientRect().height/2;
+                doc.classList.remove("IsState");
 
-                    let PosBoxX =m.target.getBoundingClientRect().left;
-                    let PosBoxY =m.target.getBoundingClientRect().top;
 
-                    let MouseX = m.clientX;
-                    let MouseY = m.clientY;
+                if (Squ){
+                    doc.style.top = m.clientY + "px";
+                    doc.style.left = m.clientX + "px";
+                    doc.style.opacity = "1";
 
-                    let _X = ( MouseX -PosBoxX )-SizeBoxX_P2;
-                    let _Y = (MouseY - PosBoxY )-SizeBoxY_P2;
 
-                    msgStyle3d ="rotate3d("+(_X/SizeBoxX_P2*7)+" ,"+(_Y/SizeBoxY_P2*7)+ ","+((_X/SizeBoxX_P2)*(_Y/SizeBoxY_P2))+",18deg) translate(-50%,-50%)";
+                    doc.innerText = BubbleInfos[Squ.classList[1]].Name;
 
-                    for (let i = 0;i<   document.getElementById("MessagesCase").children.length;i++){
-                        document.getElementById("MessagesCase").children[i].style.transform = msgStyle3d;
+                    atSquare = Number(Squ.classList[1]);
+
+                }else{
+                    atSquare = -1;
+                    doc.style.opacity = "0";
+
+                    if (m.target.classList[0] === "MessageTouchBox"){
+                        let SizeBoxX_P2 =m.target.getBoundingClientRect().width/2;
+                        let SizeBoxY_P2 =m.target.getBoundingClientRect().height/2;
+
+                        let PosBoxX =m.target.getBoundingClientRect().left;
+                        let PosBoxY =m.target.getBoundingClientRect().top;
+
+                        let MouseX = m.clientX;
+                        let MouseY = m.clientY;
+
+                        let _X = ( MouseX -PosBoxX )-SizeBoxX_P2;
+                        let _Y = (MouseY - PosBoxY )-SizeBoxY_P2;
+
+                        msgStyle3d ="rotate3d("+(_X/SizeBoxX_P2*7)+" ,"+(_Y/SizeBoxY_P2*7)+ ","+((_X/SizeBoxX_P2)*(_Y/SizeBoxY_P2))+",18deg) translate(-50%,-50%)";
+
+                        for (let i = 0;i<   document.getElementById("MessagesCase").children.length;i++){
+                            document.getElementById("MessagesCase").children[i].style.transform = msgStyle3d;
+                        }
                     }
                 }
             }
         }
+    })
+}
 
 
-    }
 
 
-})
+
 
 
 
