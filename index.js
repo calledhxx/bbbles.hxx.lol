@@ -190,6 +190,9 @@ let Squares = [
 
 ]
 
+let BubbleXSize = 900;
+let BubbleYSize = 720;
+
 let Bubbles = [
 
 ];
@@ -1044,8 +1047,8 @@ async function ent(a){
         document.getElementById("Card").style.width = "auto";
 
          tweenSize(document.getElementById("Card"),
-            800,
-            700
+            BubbleXSize,
+             BubbleYSize
             ,.1,1);
 
 
@@ -1220,24 +1223,23 @@ async function ent(a){
 let hasBeenMoved = false;
 let isHolding = false;
 
-
-
-
+let X0 = 0;
+let Y0 = 0;
 
 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+
+    BubbleXSize = 850;
+    BubbleYSize = 1320;
+
     document.addEventListener('touchstart', (m) => {
         if (m.touches && m.touches.length === 1) {
-            const touch = m.touches[0];
-            const x = touch.clientX;
-            const y = touch.clientY;
+             X0 = m.touches[0].clientX;
+             Y0 = m.touches[0].clientY;
 
             if (inUi || m.button) return;
 
             isHolding = true;
             hasBeenMoved = false;
-
-            X0 = x;
-            Y0 = y;
         }
     });
 
@@ -1383,44 +1385,37 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
     });
 
     document.addEventListener('touchend', (m) => {
-        if (m.touches && m.touches.length === 1) {
-            console.log(m.touches);
-            const touch = m.touches[0];
-            const x = touch.clientX;
-            const y = touch.clientY;
+        isHolding = false;
+        if ((!hasBeenMoved || inUi )&& !m.button)  {
 
-            isHolding = false;
-            if ((!hasBeenMoved || inUi )&& !m.button)  {
+            if (m.target.classList[0] !== "MessageTouchBox")
+            {
+                let sa = function(zzz){
 
-                if (m.target.classList[0] !== "MessageTouchBox")
-                {
-                    let sa = function(zzz){
-
-                        if (zzz) {
-                            if(zzz.id === "body")return false;
-                        }else{
-                            return false;
-                        }
-
-                        if (zzz.id === "Card" ){
-
-                            return true;
-                        }else{
-
-                            return sa( zzz.parentElement);
-                        }
+                    if (zzz) {
+                        if(zzz.id === "body")return false;
+                    }else{
+                        return false;
                     }
-                    if (sa( m.target)){
 
+                    if (zzz.id === "Card" ){
+
+                        return true;
                     }else{
 
-                        ent();
+                        return sa( zzz.parentElement);
                     }
                 }
+                if (sa( m.target)){
 
+                }else{
+
+                    ent();
+                }
             }
 
         }
+
     });
 }else{
     document.addEventListener('mousedown', (m) => {
@@ -1555,8 +1550,7 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
     });
 
 
-    let X0 = 0;
-    let Y0 = 0;
+
 
 
     let getDad = function (c,b){
