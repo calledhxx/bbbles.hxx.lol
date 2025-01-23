@@ -1041,7 +1041,7 @@ async function ent(a){
 
          tweenSize(document.getElementById("Card"),
             800,
-            560
+            700
             ,.1,1);
 
 
