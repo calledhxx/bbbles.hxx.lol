@@ -37,6 +37,8 @@ body{
     width: 100vw;
     background: linear-gradient(130deg, #461745, #250a20, #250a20, #621a51);
 
+    overflow-y: hidden;
+    overflow-x: hidden;
 }
 
 #BackGround{
@@ -69,7 +71,8 @@ body{
     justify-content: center;
     align-items: center;
 
-
+    overflow-y: hidden;
+    overflow-x: hidden;
 }
 
 #Bubbles{
