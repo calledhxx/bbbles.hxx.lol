@@ -127,7 +127,7 @@ body{
     text-shadow: rgba(0, 0, 0, 1) 0.1em 0.1em 1em;
 
 
-
+    z-index:3;
 
 }
 
@@ -664,6 +664,8 @@ h4{
     border: 2px solid rgba(255, 255, 255, 0.08);
 
     opacity:0;
+
+    z-index: 5;
 }
 
 .states{
