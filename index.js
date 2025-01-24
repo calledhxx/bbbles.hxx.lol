@@ -464,7 +464,7 @@ let LimSquares = {
     }
 }
 
-let creatBubble = function(BubbleSqr){
+let creatBubble = function(BubbleSqr){ //Create???
     let BubblesTotal= 0;
     for (let _y =0;_y<Bubbles.length; _y++){
         for (let _x=0;_x<Bubbles[_y].length; _x++) BubblesTotal++ ;
@@ -1122,7 +1122,7 @@ async function ent(a){
                 for (let i = 0;i<Data.length;i++){
 
                     let CaseE = document.createElement('div');
-                    if (i === 0) CaseE.style.paddingTop="60px";
+                    if (i === 0) CaseE.style.paddingTop="6cc0px";
                     CaseE.classList.add("Case");
 
                     let Title = Data[i]["Title"];

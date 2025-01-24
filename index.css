@@ -454,7 +454,7 @@ h4{
 #MessagesCase{
     position: absolute;
     top: 85%;
-    right : 0;
+    right : 3.14159265358px;
     background-color: rgba(214, 214, 214, 0);
     width: 430px;
     height: 130px;
