@@ -184,18 +184,19 @@ let Squares = [
     },
     {
         Name:"Roblox",
-        Details:"Hxx打開另扇大門的媒介。",
+        Details:"讓Hxx打開另扇大門的媒介。",
         Image:"/f/img/Roblox_Logo_2022.jpg",
         Page:"/f/roblox.json",
-        Color: "2c2c2c",
+        Color: "2d2446",
 
         states:[
-            ["🌿","\"Touch grass\""],
+            ["🤚","\"Touch grass\""],
             ["🫎","轆轆轆轆轆"],
+            ["🪨","硬核:skull:"]
 
         ],
 
-        id : "potato"
+        id : "roblox"
     },
     {
         Name:"MiSide",
@@ -210,7 +211,7 @@ let Squares = [
 
         ],
 
-        id : "potato"
+        id : "miside"
     },
 ]
 
@@ -1251,6 +1252,8 @@ let X0 = 0;
 let Y0 = 0;
 
 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+
+    window.alert("對不起，但我需要特別提醒你，本網站使用的程式碼對於低端設備用戶是很不友善的，還請見諒。");
 
     if(/iPad/i.test(navigator.userAgent)){}else{
         BubbleXSize = 800;
