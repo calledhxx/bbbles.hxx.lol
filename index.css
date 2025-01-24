@@ -73,6 +73,8 @@ body{
 
     overflow-y: hidden;
     overflow-x: hidden;
+
+    position: absolute;
 }
 
 #Bubbles{
@@ -454,7 +456,7 @@ h4{
 #MessagesCase{
     position: absolute;
     top: 85%;
-    right : 3.14159265358px;
+    right : 0;
     background-color: rgba(214, 214, 214, 0);
     width: 430px;
     height: 130px;
