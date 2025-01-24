@@ -459,13 +459,11 @@ h4{
 
 #MessagesCase{
     position: absolute;
-    top: 85%;
+    bottom: 10px;
     right : 0;
     background-color: rgba(214, 214, 214, 0);
     width: 430px;
     height: 130px;
-
-
 }
 
 @keyframes mouseOffAMessageCase {
