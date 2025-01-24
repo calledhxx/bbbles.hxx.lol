@@ -1122,7 +1122,7 @@ async function ent(a){
                 for (let i = 0;i<Data.length;i++){
 
                     let CaseE = document.createElement('div');
-                    if (i === 0) CaseE.style.paddingTop="30px";
+                    if (i === 0) CaseE.style.paddingTop="60px";
                     CaseE.classList.add("Case");
 
                     let Title = Data[i]["Title"];
