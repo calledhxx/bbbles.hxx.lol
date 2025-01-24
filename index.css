@@ -319,8 +319,6 @@ h2{
 h4{
     color : rgba(255, 255, 255, 0.51);
     font-size: 18px;
-
-
 }
 
 ::-webkit-scrollbar {
@@ -335,8 +333,6 @@ h4{
 
     border-radius: 10px;
     backdrop-filter: blur(20px);
-
-
 }
 
 
@@ -353,7 +349,6 @@ h4{
 ::-webkit-scrollbar-thumb:hover {
     background: rgba(194, 194, 194, 0.64);
     backdrop-filter: blur(20px);
-
 }
 
 

@@ -182,12 +182,36 @@ let Squares = [
 
         id : "potato"
     },
+    {
+        Name:"Roblox",
+        Details:"Hxx打開另扇大門的媒介。",
+        Image:"/f/img/Roblox_Logo_2022.jpg",
+        Page:"/f/roblox.json",
+        Color: "2c2c2c",
 
+        states:[
+            ["🌿","\"Touch grass\""],
+            ["🫎","轆轆轆轆轆"],
 
+        ],
 
+        id : "potato"
+    },
+    {
+        Name:"MiSide",
+        Details:"非常推薦的恐怖遊戲！",
+        Image:"/f/img/螢幕擷取畫面 2025-01-24 164159.png",
+        Page:"/f/MiSide.json",
+        Color: "642881",
 
+        states:[
+            ["🤩","超愛"],
+            ["😍","愛死了"],
 
+        ],
 
+        id : "potato"
+    },
 ]
 
 let BubbleXSize = 900;
@@ -1027,7 +1051,7 @@ async function ent(a){
         document.getElementById("Card").style.boxShadow = "0 0 300px 30px #"+hex(SqrData.Color,"111111", +1);
         document.getElementById("TopBar").style.boxShadow =  "0 0 30px #"+hex(SqrData.Color,"333333",+1);
 
-        document.getElementById("TopBarText").style.color =  "#" + hex(SqrData.Color,"311141", 1);
+        document.getElementById("TopBarText").style.color =  "#" + hex(SqrData.Color,"222222", 1);
 
 
 
