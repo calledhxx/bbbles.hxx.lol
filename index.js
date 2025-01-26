@@ -213,6 +213,21 @@ let Squares = [
 
         id : "miside"
     },
+    {
+        Name:"Mione語言",
+        Details:"Hxx在開發的程式語言！",
+        Image:"",
+        Page:"/f/mione.json",
+        Color: "812862",
+
+        states:[
+            ["🖥️","嗶嗶啵啵嗶嗶！"],
+            ["⭐","非常酷"],
+
+        ],
+
+        id : "mione"
+    }
 ]
 
 let BubbleXSize = 900;

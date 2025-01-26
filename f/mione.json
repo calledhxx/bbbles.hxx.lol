@@ -1,0 +1,24 @@
+[
+  {
+    "Title": "The Mione Programing Language",
+    "Content": "非常非常好學的程式語言...對吧？",
+    "Line": false
+  },
+  {
+    "Links": [
+      {
+        "Text": "Mione的GitHub開源專案",
+        "Link": "https://github.com/calledhxx/Mione"
+      }
+    ]
+  },
+  {
+    "Content": "我之後再更新這裡好了，可以去Thread看看Mione項目資訊。",
+    "Links": [
+      {
+        "Text": "Thread在這！",
+        "Link": "https://www.threads.net/@calledhxx"
+      }
+    ]
+  }
+]

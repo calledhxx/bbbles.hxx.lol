@@ -8,25 +8,33 @@
         "Text": "Image 1"
       }
     ],
+
+    "Line": false
+  },
+  {
+    "Content": "一些感覺很有用的連結。",
+
     "Links": [
       {
         "Text": "Hxx的泡泡部落格。",
         "Link": "https://hxx.lol"
-      }
-    ],
-    "Line": false
-  },
-  {
-
-  },
-  {
-    "Title": "Hxx🤩",
-    "Content": "實體照片流出😮",
-    "Images": [
+      },
       {
-        "Image": "/f/img/IMG_9588.JPG",
-        "Text": ""
+        "Text": "Hxx的Instagram",
+        "Link": "https://www.instagram.com/calledhxx/"
+      },
+      {
+        "Text": "Hxx的GitHub",
+        "Link": "https://github.com/calledhxx"
+      },
+      {
+        "Text": "Hxx的YouTube",
+        "Link": "https://www.youtube.com/@CalledHxx"
       }
     ]
+  },
+  {
+    "Title": "你知道嗎🤩",
+    "Content": "Hxx是三個羅馬字所組成的，分別是`H`,`x`以及`x`，是不是很震驚？"
   }
 ]
