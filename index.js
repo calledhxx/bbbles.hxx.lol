@@ -1255,7 +1255,10 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
 
     window.alert("對不起，但我需要特別提醒你，本網站使用的程式碼對於低端設備用戶是很不友善的，還請見諒。");
 
-    if(/iPad/i.test(navigator.userAgent)){}else{
+    if(/iPad/i.test(navigator.userAgent)){
+        BubbleXSize = 850;
+        BubbleYSize = 650;
+    }else{
         BubbleXSize = 800;
         BubbleYSize = 1000;
     }
