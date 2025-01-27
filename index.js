@@ -11,7 +11,7 @@ let Squares = [
 
         Page:"/f/welcome.json",
 
-        Color: "3ca98a",
+        Color: "8aa93c",
 
         states:[
             ["🌴","歡樂島"]
@@ -396,6 +396,8 @@ async  function tweenSize(obj,toX,toY,sec,lag,sizeOut){
         Y = Number(obj.style.height.substring(0,obj.style.height.length-2));
     }
 
+
+
     obj.style.width = toX+"px";
     obj.style.height = toY+"px";
 
@@ -410,6 +412,7 @@ async  function tweenPos(obj,toX,toY,sec,lag){
     let Y = Number(obj.style.backgroundPositionY.substring(0,obj.style.backgroundPositionY.length-2));
 
 
+
     for (let i = 0;i<(10*sec);i++){
 
         obj.style.backgroundPositionX = X+perSecX+"px";
@@ -421,6 +424,8 @@ async  function tweenPos(obj,toX,toY,sec,lag){
         X =  Number(obj.style.backgroundPositionX.substring(0,obj.style.backgroundPositionX.length-2));
         Y = Number(obj.style.backgroundPositionY.substring(0,obj.style.backgroundPositionY.length-2));
     }
+
+
 
     obj.style.backgroundPositionX = toX+"px";
     obj.style.backgroundPositionY = toY+"px";
