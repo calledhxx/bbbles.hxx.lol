@@ -52,7 +52,7 @@ let Squares = [
             ["🦄","「獨」家"]
         ],
 
-        id : "7sf"
+        id : "sunfish"
 
     },
     {
@@ -231,9 +231,9 @@ let Squares = [
     {
         Name:"非常破的魚",
         Details:"又Pro又破的魚種。",
-        Image:"/f/img/32f8f2203ecb889671ddd843e2d737b9.png",
-        Page:"/f/mione.json",
-        Color: "9fa6a5",
+        Image:"/f/img/螢幕擷取畫面 2025-01-27 204557.png",
+        Page:"/f/profish.json",
+        Color: "c29337",
 
         states:[
             ["🫧","啵啵啵，缺氧"],
@@ -241,13 +241,13 @@ let Squares = [
 
         ],
 
-        id : "mione"
+        id : "profish"
     },
     {
         Name:"水泥人Dummy",
         Details:"曾經入海成消波塊。",
         Image:"/f/img/螢幕擷取畫面 2025-01-27 203611.png",
-        Page:"/f/mione.json",
+        Page:"/f/dummy.json",
         Color: "5879de",
 
         states:[
@@ -256,13 +256,13 @@ let Squares = [
 
         ],
 
-        id : "mione"
+        id : "dummy"
     },
     {
         Name:"IronMan肛鐵人",
         Details:"他名子很像IronMan。",
         Image:"/f/img/148810bbcbcc4db37d2ec8188a8a6399.png",
-        Page:"/f/mione.json",
+        Page:"/f/IronMan.json",
         Color: "b26715",
 
         states:[
@@ -271,13 +271,13 @@ let Squares = [
 
         ],
 
-        id : "mione"
+        id : "ironman"
     },
     {
         Name:"DJ JD",
         Details:"JD同時也是約會軟體 :o",
         Image:"/f/img/52929faad24d847a8c75de0d10dd082e.png",
-        Page:"/f/mione.json",
+        Page:"/f/JD.json",
         Color: "478ab7",
 
         states:[
@@ -286,13 +286,13 @@ let Squares = [
 
         ],
 
-        id : "mione"
+        id : "jd"
     },
     {
         Name:"醫生害怕蘋果",
         Details:"DoctorFish，可能會是醫生:OOOO",
         Image:"/f/img/3cefb2f1f8b976328364daafe647af0d.png",
-        Page:"/f/mione.json",
+        Page:"/f/doc.json",
         Color: "b78a47",
 
         states:[
@@ -301,13 +301,13 @@ let Squares = [
 
         ],
 
-        id : "mione"
+        id : "doc"
     },
     {
         Name:"Wenson",
         Details:"明顯是為正仁君子。",
         Image:"/f/img/b5e403d11dfed3329ed8a275f9313f7f.png",
-        Page:"/f/mione.json",
+        Page:"/f/wenson.json",
         Color: "3d739f",
 
         states:[
@@ -316,7 +316,7 @@ let Squares = [
 
         ],
 
-        id : "mione"
+        id : "wenson"
     }
 ]
 
