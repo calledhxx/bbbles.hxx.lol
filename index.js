@@ -1256,11 +1256,14 @@ async function ent(a){
                     document.getElementById("Page").appendChild(CaseE);
                 }
             }
+
+            const scrollTop = document.getElementById("Page").scrollTop;
+            const deg = (document.getElementById("Page").scrollHeight-document.getElementById("Page").clientHeight) !== 0 ?scrollTop/(document.getElementById("Page").scrollHeight-document.getElementById("Page").clientHeight) : 0.5;
+            document.getElementById("Card").style.transform = "rotateX("+String((deg-0.5)*50)+"deg) translate(-50%, -50%)";
+            console.log(deg);
         }
 
-        const scrollTop = document.getElementById("Page").scrollTop;
-        const deg = scrollTop/(document.getElementById("Page").scrollHeight-document.getElementById("Page").clientHeight);
-        document.getElementById("Card").style.transform = "rotateX("+String((deg-0.5)*50)+"deg) translate(-50%, -50%)";
+
 
     }
 
