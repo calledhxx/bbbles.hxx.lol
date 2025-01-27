@@ -227,6 +227,96 @@ let Squares = [
         ],
 
         id : "mione"
+    },
+    {
+        Name:"非常破的魚",
+        Details:"又Pro又破的魚種。",
+        Image:"/f/img/32f8f2203ecb889671ddd843e2d737b9.png",
+        Page:"/f/mione.json",
+        Color: "9fa6a5",
+
+        states:[
+            ["🫧","啵啵啵，缺氧"],
+            ["🦄","「獨」家"],
+
+        ],
+
+        id : "mione"
+    },
+    {
+        Name:"水泥人Dummy",
+        Details:"曾經入海成消波塊。",
+        Image:"/f/img/螢幕擷取畫面 2025-01-27 203611.png",
+        Page:"/f/mione.json",
+        Color: "5879de",
+
+        states:[
+            ["🧱","快曬成磚了"],
+            ["🪨","他的祖先"],
+
+        ],
+
+        id : "mione"
+    },
+    {
+        Name:"IronMan肛鐵人",
+        Details:"他名子很像IronMan。",
+        Image:"/f/img/148810bbcbcc4db37d2ec8188a8a6399.png",
+        Page:"/f/mione.json",
+        Color: "b26715",
+
+        states:[
+            ["🦊","毛毛der"],
+            ["😮","很酷"],
+
+        ],
+
+        id : "mione"
+    },
+    {
+        Name:"DJ JD",
+        Details:"JD同時也是約會軟體 :o",
+        Image:"/f/img/52929faad24d847a8c75de0d10dd082e.png",
+        Page:"/f/mione.json",
+        Color: "478ab7",
+
+        states:[
+            ["🪲","第二代Bug大師"],
+            ["💀",":skull:"],
+
+        ],
+
+        id : "mione"
+    },
+    {
+        Name:"醫生害怕蘋果",
+        Details:"DoctorFish，可能會是醫生:OOOO",
+        Image:"/f/img/3cefb2f1f8b976328364daafe647af0d.png",
+        Page:"/f/mione.json",
+        Color: "b78a47",
+
+        states:[
+            ["🍎","他的天敵"],
+            ["🦄","「獨」家"],
+
+        ],
+
+        id : "mione"
+    },
+    {
+        Name:"Wenson",
+        Details:"明顯是為正仁君子。",
+        Image:"/f/img/b5e403d11dfed3329ed8a275f9313f7f.png",
+        Page:"/f/mione.json",
+        Color: "3d739f",
+
+        states:[
+            ["🪭","優雅"],
+            ["😮","好酷"],
+
+        ],
+
+        id : "mione"
     }
 ]
 
