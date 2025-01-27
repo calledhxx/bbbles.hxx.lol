@@ -1065,7 +1065,6 @@ async function ent(a){
         document.getElementById("Card").style.borderColor = "#" + hex(SqrData.Color,"111111",-1);
         document.getElementById("Card").style.color = "#" + hex(SqrData.Color,"311141", 1);
 
-        document.getElementById("Card").style.transform = "rotateX("+String((-0.5)*50)+"deg) translate(-50%, -50%)";
 
 
         document.getElementById("TopBar").style.backgroundColor =  "#" + hex(SqrData.Color,"112211",-1)+"7A";
@@ -1258,6 +1257,10 @@ async function ent(a){
                 }
             }
         }
+
+        const scrollTop = document.getElementById("Page").scrollTop;
+        const deg = scrollTop/(document.getElementById("Page").scrollHeight-document.getElementById("Page").clientHeight);
+        document.getElementById("Card").style.transform = "rotateX("+String((deg-0.5)*50)+"deg) translate(-50%, -50%)";
 
     }
 
