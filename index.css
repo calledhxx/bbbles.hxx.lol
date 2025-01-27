@@ -39,6 +39,8 @@ body{
 
     overflow-y: hidden;
     overflow-x: hidden;
+
+
 }
 
 #BackGround{
@@ -90,14 +92,9 @@ body{
     flex-wrap: wrap;
 
 
-
 }
 
 .Square{
-
-
-
-
     margin-bottom: 10px;
     margin-right: 10px;
 
@@ -110,8 +107,6 @@ body{
 
     position:absolute;
     transform: translate(0,-100%);
-
-
 
     left: 100%;
     top: 50%;
@@ -126,10 +121,10 @@ body{
 
     text-shadow: rgba(0, 0, 0, 1) 0.1em 0.1em 1em;
 
-
     z-index:3;
-
 }
+
+
 
 
 #Page{
@@ -163,13 +158,11 @@ body{
 
     box-shadow: 0 0 30px rgba(0, 0, 0, 1);
 
-
-    transform: translate(-50%, -50%);
-
-
+    perspective: 20px;
+    transform: rotateX(-25deg) translate(-50%, -50%) ;
 
 
-
+    transition: background-color  0.5s ;
 }
 
 
@@ -180,6 +173,9 @@ body{
     font-size: 50px;
 
     padding-bottom: 5px;
+
+    transition: color  0.5s ;
+
 }
 
 .Case{
@@ -201,6 +197,9 @@ body{
 
     text-shadow: #000000 0.1em 0.1em 1em;
     padding-bottom: 5px;
+
+    transition: color  0.5s ;
+
 }
 
 .ImagesCase{
@@ -209,7 +208,6 @@ body{
 
     height: auto;
     width: auto;
-
 
 }
 
@@ -226,6 +224,7 @@ body{
     flex-shrink: 0;
     box-shadow: 0 0 10px rgba(0, 0, 0, 1);
 
+    transition: border-color  0.5s ;
 
 
 }
@@ -237,6 +236,8 @@ body{
 
 .Link{
     padding-bottom: 10px;
+    transition: color  0.5s ;
+
 }
 
 #TopBar{
@@ -256,6 +257,8 @@ body{
 
     position: fixed;
     z-index: 100;
+    transition: background-color  0.5s ;
+
 }
 
 
