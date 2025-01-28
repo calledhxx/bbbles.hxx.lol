@@ -39,8 +39,6 @@ body{
 
     overflow-y: hidden;
     overflow-x: hidden;
-
-
 }
 
 #BackGround{
@@ -161,8 +159,7 @@ body{
     box-shadow: 0 0 30px rgba(0, 0, 0, 1);
 
     perspective: 20px;
-    transform: rotateX(-25deg) translate(-50%, -50%) ;
-
+    transform:  translate(-50%, -50%) ;
 
     transition: background-color  0.5s ;
 }
