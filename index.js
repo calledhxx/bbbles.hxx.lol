@@ -343,6 +343,8 @@ let BubbleInfos = [
 
 ];
 
+let onPhone = 0;
+
 let MidY = 0;
 let MidX = 0;
 
@@ -762,24 +764,24 @@ let a = async function(){
         for (let x = 0; x < Bubbles[y].length; x++) {
 
             if (MidY - y === 0){
-                yGen = 120;
+                yGen = 120+onPhone*60;
             }else{
-                yGen = 60;
+                yGen = 60+onPhone*60;
             }
 
-
+            let lessY = 0;
 
 
             if (MidX - x === 0){
-                //  document.getElementsByClassName(Bubbles[y][x])[0].style.backgroundColor = "red";
+                 //document.getElementsByClassName(Bubbles[y][x])[0].style.backgroundColor = "red";
 
             }else{
 
                 if (MidY - y === 0){
-                    // document.getElementsByClassName(Bubbles[y][x])[0].style.backgroundColor = "blue";
-
+                    //document.getElementsByClassName(Bubbles[y][x])[0].style.backgroundColor = "blue";
+                    lessY = -50*onPhone;
                 }else{
-                    // document.getElementsByClassName(Bubbles[y][x])[0].style.backgroundColor = "red";
+                    //document.getElementsByClassName(Bubbles[y][x])[0].style.backgroundColor = "red";
                 }
 
             }
@@ -798,7 +800,7 @@ let a = async function(){
                 if (x === MidX || x === MidX+1){
                     //document.getElementsByClassName(Bubbles[y][x])[0].style.backgroundColor = "green";
                 }else{
-                    EasY =- 60;
+                    EasY =- 120;
                 }
             }
 
@@ -810,7 +812,7 @@ let a = async function(){
 
              tweenMove(document.getElementsByClassName(Bubbles[y][x])[0]
                 , -MidX*55+XfirstPix+X - CX
-                ,-MidY*55+YfirstPix+Y + disY + EasY - CY
+                ,-MidY*55+YfirstPix+Y + disY + EasY - CY + lessY
                 ,
                  .8,
                 10,true)
@@ -819,45 +821,42 @@ let a = async function(){
 
 
             if (MidX - x === 0 && MidY - y === 0){
-                 tweenSize(document.getElementsByClassName(Bubbles[y][x])[0],110,110,.5,10,true);
-                xGen = 120;
-
-                document.getElementsByClassName(Bubbles[y][x])[0].children[1].textContent = SqrData.Name;
-                document.getElementsByClassName(Bubbles[y][x])[0].children[2].textContent = SqrData.Details;
-                document.getElementsByClassName(Bubbles[y][x])[0].children[1].style.fontSize = "20px";
-                document.getElementsByClassName(Bubbles[y][x])[0].children[2].style.fontSize = "13px";
-
-
-                for(let c = 0;c<document.getElementsByClassName(Bubbles[y][x])[0].children[3].children.length;c++){
-                    document.getElementsByClassName(Bubbles[y][x])[0].children[3].children[c].style.fontSize = "30px";
-                    document.getElementsByClassName(Bubbles[y][x])[0].children[3].children[c].style.marginLeft = "5px";
-                    document.getElementsByClassName(Bubbles[y][x])[0].children[3].children[c].style.marginRight = "5px";
-                }
-                document.getElementsByClassName(Bubbles[y][x])[0].children[3].style.top = "-20%";
-
-
-
+                 tweenSize(document.getElementsByClassName(Bubbles[y][x])[0],110+onPhone*100,110+onPhone*100,.5,10,true);
+                xGen = 120+onPhone*100;
 
                 if ( SqrData.Image === ""){
 
                 }   else{
                     document.getElementsByClassName(Bubbles[y][x])[0].children[0].src = "";
                     document.getElementsByClassName(Bubbles[y][x])[0].children[0].style.width = "0";
-                    document.getElementsByClassName(Bubbles[y][x])[0].children[1].textContent = SqrData.Name;
-                    document.getElementsByClassName(Bubbles[y][x])[0].children[1].style.fontSize = "20px";
-
                     document.getElementsByClassName(Bubbles[y][x])[0].children[0].style.position = "absolute";
-
-
                 }
+
+                document.getElementsByClassName(Bubbles[y][x])[0].children[1].textContent = SqrData.Name;
+                document.getElementsByClassName(Bubbles[y][x])[0].children[2].textContent = SqrData.Details;
+                document.getElementsByClassName(Bubbles[y][x])[0].children[1].style.fontSize = String(20+onPhone*20)+"px";
+                document.getElementsByClassName(Bubbles[y][x])[0].children[2].style.fontSize = String(13+onPhone*15 )+"px";
+
+
+                for(let c = 0;c<document.getElementsByClassName(Bubbles[y][x])[0].children[3].children.length;c++){
+                    document.getElementsByClassName(Bubbles[y][x])[0].children[3].children[c].style.fontSize = String(30+onPhone*50)+"px";
+                    document.getElementsByClassName(Bubbles[y][x])[0].children[3].children[c].style.marginLeft = String(5+onPhone*10)+"px";
+                    document.getElementsByClassName(Bubbles[y][x])[0].children[3].children[c].style.marginRight = String(5+onPhone*10)+"px";
+                }
+                document.getElementsByClassName(Bubbles[y][x])[0].children[3].style.top = "-20%";
+
+
+
+
+
 
 
             }else{
-                 tweenSize(document.getElementsByClassName(Bubbles[y][x])[0],50,50,.3,10,true);
-                xGen = 60;
+                 tweenSize(document.getElementsByClassName(Bubbles[y][x])[0],50+onPhone*50,50+onPhone*50,.3,10,true);
+                xGen = 60+onPhone*50;
 
                 for(let c = 0;c<document.getElementsByClassName(Bubbles[y][x])[0].children[3].children.length;c++){
-                    document.getElementsByClassName(Bubbles[y][x])[0].children[3].children[c].style.fontSize = "20px";
+                    document.getElementsByClassName(Bubbles[y][x])[0].children[3].children[c].style.fontSize = String(20+onPhone*30)+"px";
                     document.getElementsByClassName(Bubbles[y][x])[0].children[3].children[c].style.marginLeft = "-1px";
                     document.getElementsByClassName(Bubbles[y][x])[0].children[3].children[c].style.marginRight = "-1px";
                 }
@@ -866,7 +865,7 @@ let a = async function(){
 
 
                 document.getElementsByClassName(Bubbles[y][x])[0].children[1].textContent = SqrData.Name.substring(0,1);
-                document.getElementsByClassName(Bubbles[y][x])[0].children[1].style.fontSize = "26px";
+                document.getElementsByClassName(Bubbles[y][x])[0].children[1].style.fontSize = String(26+onPhone*30)+"px";
 
                 document.getElementsByClassName(Bubbles[y][x])[0].children[2].textContent = SqrData.Details;
                 document.getElementsByClassName(Bubbles[y][x])[0].children[2].style.fontSize = "0";
@@ -1384,7 +1383,7 @@ let X0 = 0;
 let Y0 = 0;
 
 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
-
+    onPhone = 1;
     window.alert("對不起，但我需要特別提醒你，本網站使用的程式碼對於低端設備用戶是很不友善的，還請見諒。");
 
     if(/iPad/i.test(navigator.userAgent)){
