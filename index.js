@@ -317,6 +317,19 @@ let Squares = [
         ],
 
         id : "wenson"
+    },
+    {
+        Name:"馬鈴薯02",
+        Details:"我能非常肯定這是亞州特有種。",
+        Image:"/f/img/IMG_1809.jpg",
+        Page:"/f/potato2.json",
+        Color: "9f753d",
+
+        states:[
+            ["🥔","啵啵"],
+        ],
+
+        id : "potato2"
     }
 ]
 
