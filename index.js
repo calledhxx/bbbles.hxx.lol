@@ -854,8 +854,8 @@ let a = async function(){
 
                 for(let c = 0;c<document.getElementsByClassName(Bubbles[y][x])[0].children[3].children.length;c++){
                     document.getElementsByClassName(Bubbles[y][x])[0].children[3].children[c].style.fontSize = String(20+onPhone*20)+"px";
-                    document.getElementsByClassName(Bubbles[y][x])[0].children[3].children[c].style.marginLeft = "-1px";
-                    document.getElementsByClassName(Bubbles[y][x])[0].children[3].children[c].style.marginRight = "-1px";
+                    document.getElementsByClassName(Bubbles[y][x])[0].children[3].children[c].style.marginLeft = String(-1+onPhone*10)+"px";
+                    document.getElementsByClassName(Bubbles[y][x])[0].children[3].children[c].style.marginRight = String(-1+onPhone*10)+"px";
                 }
                 document.getElementsByClassName(Bubbles[y][x])[0].children[3].style.top = "-"+String(4-2*onPhone)+"0%";
 
