@@ -773,15 +773,15 @@ let a = async function(){
 
 
             if (MidX - x === 0){
-                 //document.getElementsByClassName(Bubbles[y][x])[0].style.backgroundColor = "red";
-
+                 // document.getElementsByClassName(Bubbles[y][x])[0].style.backgroundColor = "yellow";
             }else{
 
                 if (MidY - y === 0){
-                    //document.getElementsByClassName(Bubbles[y][x])[0].style.backgroundColor = "blue";
+                    // document.getElementsByClassName(Bubbles[y][x])[0].style.backgroundColor = "blue";
+                    makeItBeDown = 50;
                     lessY = -50*onPhone;
                 }else{
-                    //document.getElementsByClassName(Bubbles[y][x])[0].style.backgroundColor = "red";
+                    // document.getElementsByClassName(Bubbles[y][x])[0].style.backgroundColor = "red";
                 }
 
             }
@@ -797,10 +797,11 @@ let a = async function(){
 
 
             if (MidY - y <= -1){
+
                 if (x === MidX || x === MidX+1){
                     //document.getElementsByClassName(Bubbles[y][x])[0].style.backgroundColor = "green";
                 }else{
-                    EasY =- 120;
+                    EasY =- 60-60*onPhone;
                 }
             }
 
@@ -856,11 +857,11 @@ let a = async function(){
                 xGen = 60+onPhone*50;
 
                 for(let c = 0;c<document.getElementsByClassName(Bubbles[y][x])[0].children[3].children.length;c++){
-                    document.getElementsByClassName(Bubbles[y][x])[0].children[3].children[c].style.fontSize = String(20+onPhone*30)+"px";
+                    document.getElementsByClassName(Bubbles[y][x])[0].children[3].children[c].style.fontSize = String(20+onPhone*20)+"px";
                     document.getElementsByClassName(Bubbles[y][x])[0].children[3].children[c].style.marginLeft = "-1px";
                     document.getElementsByClassName(Bubbles[y][x])[0].children[3].children[c].style.marginRight = "-1px";
                 }
-                document.getElementsByClassName(Bubbles[y][x])[0].children[3].style.top = "-40%";
+                document.getElementsByClassName(Bubbles[y][x])[0].children[3].style.top = "-"+String(4-2*onPhone)+"0%";
 
 
 
