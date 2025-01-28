@@ -766,28 +766,24 @@ let a = async function(){
             if (MidY - y === 0){
                 yGen = 120+onPhone*60;
             }else{
-                yGen = 60+onPhone*60;
+                yGen = 60+onPhone*50;
             }
 
-            let lessY = 0;
 
 
             if (MidX - x === 0){
-                 // document.getElementsByClassName(Bubbles[y][x])[0].style.backgroundColor = "yellow";
-            }else{
-
-                if (MidY - y === 0){
-                    // document.getElementsByClassName(Bubbles[y][x])[0].style.backgroundColor = "blue";
-                    makeItBeDown = 50;
-                    lessY = -50*onPhone;
+                 //document.getElementsByClassName(Bubbles[y][x])[0].style.backgroundColor = "yellow";
                 }else{
-                    // document.getElementsByClassName(Bubbles[y][x])[0].style.backgroundColor = "red";
+                if (MidY - y === 0){
+                    //document.getElementsByClassName(Bubbles[y][x])[0].style.backgroundColor = "blue";
+                }else{
+                    //document.getElementsByClassName(Bubbles[y][x])[0].style.backgroundColor = "red";
                 }
 
             }
 
 
-            let disY =  (MidX - x === 0 && MidY - y === 0) ? 60 : 0;
+            let disY =  (MidX - x === 0 && MidY - y === 0) ? 60+onPhone*50 : 0;
             let EasY = 0;
 
             let SqrData = BubbleInfos[y*mapSize + x];
@@ -797,11 +793,11 @@ let a = async function(){
 
 
             if (MidY - y <= -1){
-
                 if (x === MidX || x === MidX+1){
                     //document.getElementsByClassName(Bubbles[y][x])[0].style.backgroundColor = "green";
+                    EasY = 50*onPhone;
                 }else{
-                    EasY =- 60-60*onPhone;
+                    EasY =- 60;
                 }
             }
 
@@ -813,7 +809,7 @@ let a = async function(){
 
              tweenMove(document.getElementsByClassName(Bubbles[y][x])[0]
                 , -MidX*55+XfirstPix+X - CX
-                ,-MidY*55+YfirstPix+Y + disY + EasY - CY + lessY
+                ,-MidY*55+YfirstPix+Y + disY + EasY - CY
                 ,
                  .8,
                 10,true)
@@ -1160,9 +1156,9 @@ async function ent(a){
     }else{
         inUi = true;
 
-         tweenSize(document.getElementsByClassName(Bubbles[MidY][MidX])[0],96,96,1,10,true);
+         tweenSize(document.getElementsByClassName(Bubbles[MidY][MidX])[0],96+96*onPhone,96+96*onPhone,1,10,true);
         await sleep(70);
-         tweenSize(document.getElementsByClassName(Bubbles[MidY][MidX])[0],110,110,1,10,true);
+         tweenSize(document.getElementsByClassName(Bubbles[MidY][MidX])[0],110+100*onPhone,110+100*onPhone,1,10,true);
 
         if (SqrData.id === "7sunfish") MessageIt("太陽魚！","太陽魚是Hxx最好的好友。Hxx對我的愛都轉移到了他身上啊！！！😭");
         if (SqrData.id === "m100") MessageIt("100次移動！","恭喜完成100次移動！😗");

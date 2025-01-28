@@ -28,6 +28,9 @@ html{
 
     overflow-y: hidden;
     overflow-x: hidden;
+
+    position: absolute;
+
 }
 
 
@@ -39,6 +42,9 @@ body{
 
     overflow-y: hidden;
     overflow-x: hidden;
+
+    position: absolute;
+
 }
 
 #BackGround{
