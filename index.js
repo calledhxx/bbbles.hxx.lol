@@ -444,18 +444,23 @@ async function MessageIt(Title,Reason){
 let tweenMoveIndex = 0;
 let tweenMoveObj;
 async  function tweenMove(obj,toX,toY,sec,lag,moveOut){
-    tweenMoveObj = obj;
-    tweenMoveIndex++;
+    let LastTMI;
+    if(moveOut){
+        tweenMoveIndex++;
+        tweenMoveObj = obj;
+        LastTMI = tweenMoveIndex;
+    }
+
     let perSecX = (toX-obj.style.left.substring(0,obj.style.left.length-2))/(sec*10);
     let perSecY = (toY-obj.style.top.substring(0,obj.style.top.length-2))/(sec*10);
 
     let X =  Number(obj.style.left.substring(0,obj.style.left.length-2));
     let Y = Number(obj.style.top.substring(0,obj.style.top.length-2));
 
-    let LastTMI = tweenMoveIndex;
+
 
     for (let i = 0;i<(10*sec);i++){
-        if (moveOut) if (LastTMI!== tweenMoveIndex) if(obj === tweenMoveObj) break;
+        if (moveOut) if(obj === tweenMoveObj) if (LastTMI!== tweenMoveIndex)  break;
 
         obj.style.left = X+perSecX+"px";
         obj.style.top = Y+perSecY+"px";
@@ -466,7 +471,6 @@ async  function tweenMove(obj,toX,toY,sec,lag,moveOut){
         X =  Number(obj.style.left.substring(0,obj.style.left.length-2));
         Y = Number(obj.style.top.substring(0,obj.style.top.length-2));
     }
-
     obj.style.left = toX+"px";
     obj.style.top = toY+"px";
 
@@ -475,38 +479,36 @@ async  function tweenMove(obj,toX,toY,sec,lag,moveOut){
 let tweenSizeIndex = 0;
 let tweenSizeObj;
 
-async  function tweenSize(obj,toX,toY,sec,lag,sizeOut){
-    tweenSizeObj = obj;
-    tweenSizeIndex++;
+async function tweenSize(obj,toX,toY,sec,lag,sizeOut){
+    let LastTSI;
+    if(sizeOut){
+        tweenSizeObj = obj;
+        tweenSizeIndex++;
+        LastTSI = tweenSizeIndex;
+    }
+
     let perSecX = (toX-obj.style.width.substring(0,obj.style.width.length-2))/(sec*10);
     let perSecY = (toY-obj.style.height.substring(0,obj.style.height.length-2))/(sec*10);
 
     let X =  Number(obj.style.width.substring(0,obj.style.width.length-2));
     let Y = Number(obj.style.height.substring(0,obj.style.height.length-2));
 
-    let LastTSI = tweenSizeIndex;
 
 
     for (let i = 0;i<(10*sec);i++){
-        if (sizeOut) if (LastTSI!== tweenSizeIndex)  if(obj === tweenSizeIndex)  break;
-
+        if (sizeOut)  if(obj === tweenSizeObj)  if (LastTSI!== tweenSizeIndex)  break;
 
         obj.style.width = X+perSecX+"px";
         obj.style.height = Y+perSecY+"px";
 
         await sleep(lag);
 
-
         X =  Number(obj.style.width.substring(0,obj.style.width.length-2));
         Y = Number(obj.style.height.substring(0,obj.style.height.length-2));
     }
 
-
-
-    obj.style.width = toX+"px";
+    obj.style.width = toX +"px";
     obj.style.height = toY+"px";
-
-
 }
 
 async  function tweenPos(obj,toX,toY,sec,lag){
