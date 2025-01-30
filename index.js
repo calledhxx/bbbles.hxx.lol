@@ -1387,7 +1387,6 @@ let Y0 = 0;
 
 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
     onPhone = 1;
-    window.alert("對不起，但我需要特別提醒你，本網站使用的程式碼對於低端設備用戶是很不友善的，還請見諒。");
 
     if(/iPad/i.test(navigator.userAgent)){
         BubbleXSize = 850;
@@ -1431,7 +1430,7 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
                 }
 
 
-                if (Math.abs(x - X0  ) > 75){
+                if (Math.abs(x - X0  ) > 175){
                     let db =  X0-x > 0;
                     let IF = db?(MidX+1<mapSize ? (typeof  Bubbles[MidY][MidX+1]) === "number":false): (MidX-1>=0 ? (typeof  Bubbles[MidY][MidX-1]) === "number" : false);
 
@@ -1455,7 +1454,7 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
 
                 }
 
-                if (Math.abs(y -Y0) > 75){
+                if (Math.abs(y -Y0) > 175){
                     let db =  Y0-y > 0;
                     let IF = db?(MidY+1<mapSize ? (typeof  Bubbles[MidY+1][MidX]) === "number":false): (MidY-1>=0 ? (typeof  Bubbles[MidY-1][MidX]) === "number" : false);
 
