@@ -1122,11 +1122,8 @@ async function ent(a){
 
     if (inUi){
         inUi = false;
-
-
-
-        tweenSize(document.getElementById("Card"),100,0,1,6);
-        tweenMove(document.getElementById("Card"),window.innerWidth/2,window.innerHeight,0.000001,1);
+        tweenSize(document.getElementById("Card"),50,50,1,6);
+        tweenMove(document.getElementById("Card"),window.innerWidth/2,window.innerHeight*1.5,0.000001,1);
 
         document.getElementById("TopBar").style.borderWidth =  "0";
         document.getElementById("TopBar").style.borderColor = "rgba(0,0,0,0)";
@@ -1137,7 +1134,6 @@ async function ent(a){
         document.getElementById("TopBarImg").src = "";
         document.getElementById("TopBarText").textContent = "";
 
-        tweenMove(document.getElementById("Card"),0,-300,0.000001,1);
 
         let n = document.getElementsByClassName("Case").length;
         for (let i =0 ;i<n;i++){
