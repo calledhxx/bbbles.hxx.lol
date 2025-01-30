@@ -1122,14 +1122,15 @@ async function ent(a){
 
     if (inUi){
         inUi = false;
-        tweenSize(document.getElementById("Card"),50,50,1,6);
+        await tweenSize(document.getElementById("Card"),50,50,1,6);
+         sleep(100);
+
         tweenMove(document.getElementById("Card"),window.innerWidth/2,window.innerHeight*1.5,0.000001,1);
 
         document.getElementById("TopBar").style.borderWidth =  "0";
         document.getElementById("TopBar").style.borderColor = "rgba(0,0,0,0)";
 
 
-        await sleep(100);
 
         document.getElementById("TopBarImg").src = "";
         document.getElementById("TopBarText").textContent = "";
