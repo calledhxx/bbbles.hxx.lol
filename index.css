@@ -43,7 +43,7 @@ body{
     overflow-y: hidden;
     overflow-x: hidden;
 
-    position: absolute;
+    position: fixed;
 
 }
 
@@ -80,7 +80,7 @@ body{
     overflow-y: hidden;
     overflow-x: hidden;
 
-    position: absolute; /*i got it*/
+    position: fixed; /*i got it*/
 
     top: 0;
     left: 0;
