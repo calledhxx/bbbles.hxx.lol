@@ -868,15 +868,11 @@ let a = async function(){
                 document.getElementsByClassName(Bubbles[y][x])[0].children[2].style.fontSize = "0";
 
                 if ( SqrData.Image === ""){
-                    document.getElementsByClassName(Bubbles[y][x])[0].children[0].style.position = "absolute";
                 }   else{
                     document.getElementsByClassName(Bubbles[y][x])[0].children[1].style.fontSize = "0";
-                    document.getElementsByClassName(Bubbles[y][x])[0].children[2].style.fontSize = "0";
-
                     document.getElementsByClassName(Bubbles[y][x])[0].children[0].style.width = "90%";
                     document.getElementsByClassName(Bubbles[y][x])[0].children[0].src = SqrData.Image;
 
-                    document.getElementsByClassName(Bubbles[y][x])[0].children[0].style.position = "relative";
                 }
 
 
