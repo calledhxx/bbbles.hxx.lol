@@ -459,7 +459,7 @@ async  function tweenMove(obj,toX,toY,sec,lag,moveOut){
 
 
 
-    /*
+
     for (let i = 0;i<(10*sec);i++){
         if (moveOut) if(obj === tweenMoveObj) if (LastTMI!== tweenMoveIndex)  break;
 
@@ -473,7 +473,7 @@ async  function tweenMove(obj,toX,toY,sec,lag,moveOut){
         Y = Number(obj.style.top.substring(0,obj.style.top.length-2));
     }
 
-     */
+
     obj.style.left = toX+"px";
     obj.style.top = toY+"px";
 
@@ -497,7 +497,7 @@ async function tweenSize(obj,toX,toY,sec,lag,sizeOut){
     let Y = Number(obj.style.height.substring(0,obj.style.height.length-2));
 
 
-    /*
+
     for (let i = 0;i<(10*sec);i++){
         if (sizeOut)  if(obj === tweenSizeObj)  if (LastTSI!== tweenSizeIndex)  break;
 
@@ -510,7 +510,7 @@ async function tweenSize(obj,toX,toY,sec,lag,sizeOut){
         Y = Number(obj.style.height.substring(0,obj.style.height.length-2));
     }
 
-     */
+
 
     obj.style.width = toX +"px";
     obj.style.height = toY+"px";
