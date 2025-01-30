@@ -1257,7 +1257,9 @@ async function ent(a){
                         TitleE.textContent = Data[i]["Title"];
                         TitleE.classList.add("Title");
                         TitleE.style.color = "#" + hex(SqrData.Color,"444444", +1);
+                        TitleE.style.fontSize = String(50+onPhone*15)+"px";
                         CaseE.appendChild(TitleE);
+
                     }
 
 
@@ -1271,6 +1273,9 @@ async function ent(a){
                         ContentE.classList.add("Content");
                         ContentE.style.color = "#" + hex(SqrData.Color,"222222", +1);
                         CaseE.appendChild(ContentE);
+
+                        ContentE.style.fontSize = String(20+onPhone*10)+"px";
+
                     }
 
 
@@ -1314,6 +1319,7 @@ async function ent(a){
 
 
 
+                            LinkE.style.fontSize = String(20+onPhone*10)+"px";
 
                             LinksCaseE.appendChild(LinkE);
 
