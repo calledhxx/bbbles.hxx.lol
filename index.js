@@ -1156,7 +1156,7 @@ async function ent(a){
         await sleep(70);
          tweenSize(document.getElementsByClassName(Bubbles[MidY][MidX])[0],110+100*onPhone,110+100*onPhone,1,10,true);
 
-        if (SqrData.id === "7SunFish") MessageIt("太陽魚！","太陽魚是Hxx最好的好友。Hxx對我的愛都轉移到了他身上啊！！！😭");
+        if (SqrData.id === "sunfish") MessageIt("太陽魚！","太陽魚是Hxx最好的好友。Hxx對我的愛都轉移到了他身上啊！！！😭");
         if (SqrData.id === "m100") MessageIt("100次移動！","恭喜完成100次移動！😗");
         if (SqrData.id === "minecraft") MessageIt("Minecraft！","話說你玩過Minecraft嗎？ 如果有，你可以想盡辦法聯繫到Hxx並與他共玩！");
 
