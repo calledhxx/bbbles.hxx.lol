@@ -724,8 +724,8 @@ let a = async function(){
     let X = 0;
     let Y = 0;
 
-    let XfirstPix = Math.floor(window.innerWidth/2)-55//Math.floor((mapSize/2)*55);
-    let YfirstPix = Math.floor(window.innerHeight/2)-55//Math.floor((mapSize/2)*55);
+    let XfirstPix = Math.floor(window.innerWidth/2)-55-onPhone*50//Math.floor((mapSize/2)*55);
+    let YfirstPix = Math.floor(window.innerHeight/2)-55-onPhone*50//Math.floor((mapSize/2)*55);
 
     let xGen = 60;
     let yGen = 60;
@@ -815,8 +815,8 @@ let a = async function(){
 
 
              tweenMove(document.getElementsByClassName(Bubbles[y][x])[0]
-                , -MidX*55+XfirstPix+X - CX
-                ,-MidY*55+YfirstPix+Y + disY + EasY - CY
+                , -MidX*(55+onPhone*50)+XfirstPix+X - CX
+                ,-MidY*(55+onPhone*50)+YfirstPix+Y + disY + EasY - CY
                 ,
                  .8,
                 10,true)
@@ -1430,7 +1430,7 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
                 }
 
 
-                if (Math.abs(x - X0  ) > 175){
+                if (Math.abs(x - X0  ) > 100){
                     let db =  X0-x > 0;
                     let IF = db?(MidX+1<mapSize ? (typeof  Bubbles[MidY][MidX+1]) === "number":false): (MidX-1>=0 ? (typeof  Bubbles[MidY][MidX-1]) === "number" : false);
 
@@ -1454,7 +1454,7 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
 
                 }
 
-                if (Math.abs(y -Y0) > 175){
+                if (Math.abs(y -Y0) > 100){
                     let db =  Y0-y > 0;
                     let IF = db?(MidY+1<mapSize ? (typeof  Bubbles[MidY+1][MidX]) === "number":false): (MidY-1>=0 ? (typeof  Bubbles[MidY-1][MidX]) === "number" : false);
 
