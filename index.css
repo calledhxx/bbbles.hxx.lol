@@ -38,7 +38,7 @@ html{
 body{
     height: 100vh;
     width: 100vw;
-    background: repeating-radial-gradient(#461722, #250a11, #250a16, #621a2b);
+    background: repeating-radial-gradient(#2e1746, #130a25, #110a25, #451a62);
 
     overflow-y: hidden;
     overflow-x: hidden;

@@ -443,6 +443,7 @@ async function MessageIt(Title,Reason){
 
 let tweenMoveIndex = 0;
 let tweenMoveObj;
+
 async  function tweenMove(obj,toX,toY,sec,lag,moveOut){
     let LastTMI;
     if(moveOut){
@@ -716,8 +717,6 @@ let creatBubble = function(BubbleSqr){ //Create???
             break;
         }
     }
-
-
 }
 
 let a = async function(){
@@ -761,11 +760,7 @@ let a = async function(){
 
      tweenPos(document.getElementById("BackGround"),-MidX*20,-MidY*20,3,.1);
 
-
-
     //
-
-
     for (let y = 0;y<Bubbles.length;y++) {
         X = 0;
         for (let x = 0; x < Bubbles[y].length; x++) {
@@ -808,28 +803,14 @@ let a = async function(){
                 }
             }
 
-
-
             //+ (Number(document.getElementsByClassName(Bubbles[y][x])[0].style.width.substring(0,document.getElementsByClassName(Bubbles[y][x])[0].style.width.length-2)))/5
             //+  (Number(document.getElementsByClassName(Bubbles[y][x])[0].style.height.substring(0,document.getElementsByClassName(Bubbles[y][x])[0].style.height.length-2)))/5
 
 
-             tweenMove(document.getElementsByClassName(Bubbles[y][x])[0]
-                , -MidX*(55+onPhone*50)+XfirstPix+X - CX
-                ,-MidY*(55+onPhone*50)+YfirstPix+Y + disY + EasY - CY
-                ,
-                 .8,
-                10,true)
-
-
-
 
             if (MidX - x === 0 && MidY - y === 0){
-                 tweenSize(document.getElementsByClassName(Bubbles[y][x])[0],110+onPhone*100,110+onPhone*100,.5,10,true);
                 xGen = 120+onPhone*100;
-
                 if ( SqrData.Image === ""){
-
                 }   else{
                     document.getElementsByClassName(Bubbles[y][x])[0].children[0].src = "";
                     document.getElementsByClassName(Bubbles[y][x])[0].children[0].style.width = "0";
@@ -848,15 +829,10 @@ let a = async function(){
                     document.getElementsByClassName(Bubbles[y][x])[0].children[3].children[c].style.marginRight = String(5+onPhone*10)+"px";
                 }
                 document.getElementsByClassName(Bubbles[y][x])[0].children[3].style.top = "-20%";
-
-
-
-
-
+                 tweenSize(document.getElementsByClassName(Bubbles[y][x])[0],110+onPhone*100,110+onPhone*100,.5,1,true);
 
 
             }else{
-                 tweenSize(document.getElementsByClassName(Bubbles[y][x])[0],50+onPhone*50,50+onPhone*50,.3,10,true);
                 xGen = 60+onPhone*50;
 
                 for(let c = 0;c<document.getElementsByClassName(Bubbles[y][x])[0].children[3].children.length;c++){
@@ -865,8 +841,6 @@ let a = async function(){
                     document.getElementsByClassName(Bubbles[y][x])[0].children[3].children[c].style.marginRight = String(-1+onPhone*10)+"px";
                 }
                 document.getElementsByClassName(Bubbles[y][x])[0].children[3].style.top = "-"+String(4-2*onPhone)+"0%";
-
-
 
                 document.getElementsByClassName(Bubbles[y][x])[0].children[1].textContent = SqrData.Name.substring(0,1);
                 document.getElementsByClassName(Bubbles[y][x])[0].children[1].style.fontSize = String(26+onPhone*30)+"px";
@@ -879,12 +853,16 @@ let a = async function(){
                     document.getElementsByClassName(Bubbles[y][x])[0].children[1].style.fontSize = "0";
                     document.getElementsByClassName(Bubbles[y][x])[0].children[0].style.width = "90%";
                     document.getElementsByClassName(Bubbles[y][x])[0].children[0].src = SqrData.Image;
-
                 }
-
-
+                await tweenSize(document.getElementsByClassName(Bubbles[y][x])[0],50+onPhone*50,50+onPhone*50,.3,1,true);
             }
 
+             tweenMove(document.getElementsByClassName(Bubbles[y][x])[0]
+                , -MidX*(55+onPhone*50)+XfirstPix+X - CX
+                ,-MidY*(55+onPhone*50)+YfirstPix+Y + disY + EasY - CY
+                ,
+                1,
+                10,true)
 
             // document.getElementsByClassName(Bubbles[y][x])[0].style.left = -MidX*55+XfirstPix+X+"px";
             // document.getElementsByClassName(Bubbles[y][x])[0].style.top = -MidY*55+YfirstPix+Y+"px";
