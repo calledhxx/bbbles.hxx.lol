@@ -806,7 +806,12 @@ let a = async function(){
             //+ (Number(document.getElementsByClassName(Bubbles[y][x])[0].style.width.substring(0,document.getElementsByClassName(Bubbles[y][x])[0].style.width.length-2)))/5
             //+  (Number(document.getElementsByClassName(Bubbles[y][x])[0].style.height.substring(0,document.getElementsByClassName(Bubbles[y][x])[0].style.height.length-2)))/5
 
-
+            tweenMove(document.getElementsByClassName(Bubbles[y][x])[0]
+                , -MidX*(55+onPhone*50)+XfirstPix+X - CX
+                ,-MidY*(55+onPhone*50)+YfirstPix+Y + disY + EasY - CY
+                ,
+                .8,
+                10,true)
 
             if (MidX - x === 0 && MidY - y === 0){
                 xGen = 120+onPhone*100;
@@ -829,7 +834,7 @@ let a = async function(){
                     document.getElementsByClassName(Bubbles[y][x])[0].children[3].children[c].style.marginRight = String(5+onPhone*10)+"px";
                 }
                 document.getElementsByClassName(Bubbles[y][x])[0].children[3].style.top = "-20%";
-                 tweenSize(document.getElementsByClassName(Bubbles[y][x])[0],110+onPhone*100,110+onPhone*100,.5,1,true);
+                 tweenSize(document.getElementsByClassName(Bubbles[y][x])[0],110+onPhone*100,110+onPhone*100,.3,5,true);
 
 
             }else{
@@ -854,15 +859,10 @@ let a = async function(){
                     document.getElementsByClassName(Bubbles[y][x])[0].children[0].style.width = "90%";
                     document.getElementsByClassName(Bubbles[y][x])[0].children[0].src = SqrData.Image;
                 }
-                await tweenSize(document.getElementsByClassName(Bubbles[y][x])[0],50+onPhone*50,50+onPhone*50,.3,1,true);
+                 tweenSize(document.getElementsByClassName(Bubbles[y][x])[0],50+onPhone*50,50+onPhone*50,.2,5,true);
             }
 
-             tweenMove(document.getElementsByClassName(Bubbles[y][x])[0]
-                , -MidX*(55+onPhone*50)+XfirstPix+X - CX
-                ,-MidY*(55+onPhone*50)+YfirstPix+Y + disY + EasY - CY
-                ,
-                1,
-                10,true)
+
 
             // document.getElementsByClassName(Bubbles[y][x])[0].style.left = -MidX*55+XfirstPix+X+"px";
             // document.getElementsByClassName(Bubbles[y][x])[0].style.top = -MidY*55+YfirstPix+Y+"px";
