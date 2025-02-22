@@ -1070,6 +1070,15 @@ document.addEventListener("DOMContentLoaded",   async function(){
 
 
 
+function playAudioAndWait(audio) {
+    return new Promise(resolve => {
+        audio.addEventListener('ended', resolve, { once: true });
+        audio.play();
+    });
+}
+
+
+
 let inUi = false;
 
 
@@ -1363,6 +1372,7 @@ let isHolding = false;
 let X0 = 0;
 let Y0 = 0;
 
+
 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
     onPhone = 1;
 
@@ -1377,6 +1387,7 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
 
 
     document.addEventListener('touchstart', (m) => {
+
         if (m.touches && m.touches.length === 1) {
              X0 = m.touches[0].clientX;
              Y0 = m.touches[0].clientY;
@@ -1459,6 +1470,7 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
     });
 
     document.addEventListener('touchend', (m) => {
+        
         isHolding = false;
         if ((!hasBeenMoved || inUi )&& !m.button)  {
 
@@ -1493,6 +1505,8 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
     });
 }else{
     document.addEventListener('mousedown', (m) => {
+        
+
         if (inUi || m.button) return;
 
         isHolding = true;
@@ -1638,6 +1652,7 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
 
     document.addEventListener('mousemove', (m) => {
 
+
         if (isHolding){
             if (inUi){
                 X0 = m.clientX;
@@ -1769,14 +1784,8 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
     })
 }
 
-
-
-
-
-
-
-
 window.addEventListener('resize', function() {
     a();
     ent(true);
+
 });
