@@ -330,11 +330,11 @@ let Squares = [
         ],
 
         id : "potato2"
-    }
+    },
 ]
 
 let BubbleXSize = 900;
-let BubbleYSize = 720;
+let BubbleYSize = 1520;
 
 let Bubbles = [
 
@@ -382,8 +382,6 @@ async function MessageIt(Title,Reason){
         await tweenMsgMove(AMessageCase,-300,1,1);
         await sleep(100);
 
-
-
         let MessageTouchBox = document.createElement("div");
         MessageTouchBox.classList.add("MessageTouchBox");
 
@@ -418,6 +416,10 @@ async function MessageIt(Title,Reason){
             MessageIt();
         })
 
+        if(onPhone) {
+            MessageContent1.style.fontSize = "50px";
+            MessageContent2.style.fontSize = "40px";
+        }
 
 
         await tweenMsgMove(AMessageCase,0,1,1);
@@ -819,6 +821,7 @@ let a = async function(){
                 }   else{
                     document.getElementsByClassName(Bubbles[y][x])[0].children[0].src = "";
                     document.getElementsByClassName(Bubbles[y][x])[0].children[0].style.width = "0";
+                    document.getElementsByClassName(Bubbles[y][x])[0].children[0].style.height = "0";
                     document.getElementsByClassName(Bubbles[y][x])[0].children[0].style.position = "absolute";
                 }
 
@@ -857,6 +860,7 @@ let a = async function(){
                 }   else{
                     document.getElementsByClassName(Bubbles[y][x])[0].children[1].style.fontSize = "0";
                     document.getElementsByClassName(Bubbles[y][x])[0].children[0].style.width = "90%";
+                    document.getElementsByClassName(Bubbles[y][x])[0].children[0].style.height = "90%";
                     document.getElementsByClassName(Bubbles[y][x])[0].children[0].src = SqrData.Image;
                 }
                  tweenSize(document.getElementsByClassName(Bubbles[y][x])[0],50+onPhone*50,50+onPhone*50,.2,5,true);
@@ -948,6 +952,12 @@ function hex(a,b,c){
 
 document.addEventListener("DOMContentLoaded",   async function(){
 
+    if (onPhone) {
+        document.getElementById("BackGround").style.backgroundSize = "1100px";
+        document.getElementById("MessagesCase").style.width = "860px";
+        document.getElementById("MessagesCase").style.height = "260px";
+    }
+
 
     MessageIt("我們的餅乾 Cookie","本網站直接紀錄使用者的動作至Cookie裡，若有需求者，可直接清除本網站的Cookie。");
 
@@ -1010,8 +1020,10 @@ document.addEventListener("DOMContentLoaded",   async function(){
         button.classList.add("Square");
         button.classList.add(i);
 
+
+
         img.classList.add("Icon");
-        
+
         button.appendChild(img);
 
         button.appendChild(h2);
@@ -1185,7 +1197,7 @@ async function ent(a){
         document.getElementById("Card").style.width = "auto";
 
          tweenSize(document.getElementById("Card"),
-            BubbleXSize,
+             BubbleXSize,
              BubbleYSize
             ,.1,1);
 
@@ -1244,7 +1256,7 @@ async function ent(a){
                         TitleE.textContent = Data[i]["Title"];
                         TitleE.classList.add("Title");
                         TitleE.style.color = "#" + hex(SqrData.Color,"444444", +1);
-                        TitleE.style.fontSize = String(50+onPhone*15)+"px";
+                        TitleE.style.fontSize = String(50+onPhone*25)+"px";
                         CaseE.appendChild(TitleE);
 
                     }
@@ -1261,8 +1273,7 @@ async function ent(a){
                         ContentE.style.color = "#" + hex(SqrData.Color,"222222", +1);
                         CaseE.appendChild(ContentE);
 
-                        ContentE.style.fontSize = String(20+onPhone*10)+"px";
-
+                        ContentE.style.fontSize = String(20+onPhone*20)+"px";
                     }
 
 
@@ -1306,7 +1317,7 @@ async function ent(a){
 
 
 
-                            LinkE.style.fontSize = String(20+onPhone*10)+"px";
+                            LinkE.style.fontSize = String(20+onPhone*20)+"px";
 
                             LinksCaseE.appendChild(LinkE);
 
@@ -1375,16 +1386,6 @@ let Y0 = 0;
 
 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
     onPhone = 1;
-
-    if(/iPad/i.test(navigator.userAgent)){
-        BubbleXSize = 850;
-        BubbleYSize = 650;
-    }else{
-        BubbleXSize = 800;
-        BubbleYSize = 1000;
-    }
-
-
 
     document.addEventListener('touchstart', (m) => {
 
