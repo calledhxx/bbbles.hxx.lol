@@ -334,7 +334,7 @@ let Squares = [
 ]
 
 let BubbleXSize = 900;
-let BubbleYSize = 1520;
+let BubbleYSize = 720;
 
 let Bubbles = [
 
@@ -1386,6 +1386,9 @@ let Y0 = 0;
 
 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
     onPhone = 1;
+
+    BubbleXSize =  900;
+    BubbleYSize = 1520;
 
     document.addEventListener('touchstart', (m) => {
 
