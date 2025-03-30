@@ -870,7 +870,7 @@ let a = async function(){
                  // tweenSize(document.getElementsByClassName(Bubbles[y][x])[0],50+onPhone*50,50+onPhone*50,.2,5,true);
 
                 document.getElementsByClassName(Bubbles[y][x])[0].style.width = String(50+onPhone*50)+"px";
-                document.getElementsByClassName(Bubbles[y][x])[0].style.height = String(50+onPhone*500)+"px";
+                document.getElementsByClassName(Bubbles[y][x])[0].style.height = String(50+onPhone*50)+"px";
             }
 
 
