@@ -808,12 +808,15 @@ let a = async function(){
             //+ (Number(document.getElementsByClassName(Bubbles[y][x])[0].style.width.substring(0,document.getElementsByClassName(Bubbles[y][x])[0].style.width.length-2)))/5
             //+  (Number(document.getElementsByClassName(Bubbles[y][x])[0].style.height.substring(0,document.getElementsByClassName(Bubbles[y][x])[0].style.height.length-2)))/5
 
-            tweenMove(document.getElementsByClassName(Bubbles[y][x])[0]
-                , -MidX*(55+onPhone*50)+XfirstPix+X - CX
-                ,-MidY*(55+onPhone*50)+YfirstPix+Y + disY + EasY - CY
-                ,
-                .8,
-                10,true)
+            document.getElementsByClassName(Bubbles[y][x])[0].style.left = String(-MidX*(55+onPhone*50)+XfirstPix+X - CX)+"px";
+            document.getElementsByClassName(Bubbles[y][x])[0].style.top = String(-MidY*(55+onPhone*50)+YfirstPix+Y + disY + EasY - CY)+"px";
+
+            // tweenMove(document.getElementsByClassName(Bubbles[y][x])[0]
+            //     , -MidX*(55+onPhone*50)+XfirstPix+X - CX
+            //     -MidX*(55+onPhone*50)+XfirstPix+X - CX,
+            //     -MidY*(55+onPhone*50)+YfirstPix+Y + disY + EasY - CY,
+            //     .8,
+            //     10,true)
 
             if (MidX - x === 0 && MidY - y === 0){
                 xGen = 120+onPhone*100;
@@ -837,9 +840,10 @@ let a = async function(){
                     document.getElementsByClassName(Bubbles[y][x])[0].children[3].children[c].style.marginRight = String(5+onPhone*10)+"px";
                 }
                 document.getElementsByClassName(Bubbles[y][x])[0].children[3].style.top = "-20%";
-                 tweenSize(document.getElementsByClassName(Bubbles[y][x])[0],110+onPhone*100,110+onPhone*100,.3,5,true);
+                 // tweenSize(document.getElementsByClassName(Bubbles[y][x])[0],110+onPhone*100,110+onPhone*100,.3,5,true);
 
-
+                document.getElementsByClassName(Bubbles[y][x])[0].style.width = String(110+onPhone*100)+"px";
+                document.getElementsByClassName(Bubbles[y][x])[0].style.height = String(110+onPhone*100)+"px";
             }else{
                 xGen = 60+onPhone*50;
 
@@ -863,7 +867,10 @@ let a = async function(){
                     document.getElementsByClassName(Bubbles[y][x])[0].children[0].style.height = "90%";
                     document.getElementsByClassName(Bubbles[y][x])[0].children[0].src = SqrData.Image;
                 }
-                 tweenSize(document.getElementsByClassName(Bubbles[y][x])[0],50+onPhone*50,50+onPhone*50,.2,5,true);
+                 // tweenSize(document.getElementsByClassName(Bubbles[y][x])[0],50+onPhone*50,50+onPhone*50,.2,5,true);
+
+                document.getElementsByClassName(Bubbles[y][x])[0].style.width = String(50+onPhone*50)+"px";
+                document.getElementsByClassName(Bubbles[y][x])[0].style.height = String(50+onPhone*500)+"px";
             }
 
 
@@ -1099,8 +1106,9 @@ let lastTimeEnt = new Date().getTime();
 async function ent(a){
     if(a){
         if(inUi){
-            tweenMove(document.getElementById("Card"),window.innerWidth/2,window.innerHeight/2,1,1);
-
+            // tweenMove(document.getElementById("Card"),window.innerWidth/2,window.innerHeight/2,1,1);
+            document.getElementById("Card").style.left = String(window.innerWidth/2)+"px";
+            document.getElementById("Card").style.top = String(window.innerHeight/2)+"px";
         }
         return;
     }
@@ -1121,10 +1129,16 @@ async function ent(a){
 
     if (inUi){
         inUi = false;
-        await tweenSize(document.getElementById("Card"),50,50,1,6);
+        // await tweenSize(document.getElementById("Card"),50,50,1,6);
+
+        document.getElementById("Card").style.width = String(50)+"px";
+        document.getElementById("Card").style.height = String(50)+"px";
          sleep(100);
 
-        tweenMove(document.getElementById("Card"),window.innerWidth/2,window.innerHeight*1.5,0.000001,1);
+        // tweenMove(document.getElementById("Card"),window.innerWidth/2,window.innerHeight*1.5,0.000001,1);
+
+        document.getElementById("Card").style.left = String(window.innerWidth/2)+"px";
+        document.getElementById("Card").style.top = String(window.innerHeight*1.5)+"px";
 
         document.getElementById("TopBar").style.borderWidth =  "0";
         document.getElementById("TopBar").style.borderColor = "rgba(0,0,0,0)";
@@ -1188,7 +1202,10 @@ async function ent(a){
 
 
 
-        tweenMove(document.getElementById("Card"),window.innerWidth/2,window.innerHeight,0.000001,1);
+        // tweenMove(document.getElementById("Card"),window.innerWidth/2,window.innerHeight,0.000001,1);
+
+        document.getElementById("Card").style.left = String(window.innerWidth/2)+"px";
+        document.getElementById("Card").style.top = String(window.innerHeight)+"px";
 
         await sleep(50);
 
@@ -1202,7 +1219,10 @@ async function ent(a){
             ,.1,1);
 
 
-        tweenMove(document.getElementById("Card"),window.innerWidth/2,window.innerHeight/2,1,10);
+        // tweenMove(document.getElementById("Card"),window.innerWidth/2,window.innerHeight/2,1,10);
+
+        document.getElementById("Card").style.left = String(window.innerWidth/2)+"px";
+        document.getElementById("Card").style.top = String(window.innerHeight/2)+"px";
 
         let LoadCase =  document.createElement('div');
         let LoadBox =  document.createElement('h1');

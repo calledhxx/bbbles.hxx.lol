@@ -99,7 +99,6 @@ body{
 
     z-index: 1;
 
-
 }
 
 .Square{
@@ -131,8 +130,8 @@ body{
 
     z-index:3;
 
-    transition: background-color 0.2s;
 
+    transition: all 50ms ease-in-out;
 
 }
 
@@ -173,7 +172,7 @@ body{
     perspective: 20px;
     transform:  translate(-50%, -50%) ;
 
-    transition: background-color 0.15s;
+    transition: all 0.15s ease-in-out;
 
 }
 
