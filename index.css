@@ -14,6 +14,7 @@
     -moz-user-drag: none;  /* Firefox */
     -ms-user-drag: none;   /* IE 10+ */
     user-drag: none;       /* 通用 */
+
 }
 
 *::selection{
@@ -131,7 +132,7 @@ body{
     z-index:3;
 
 
-    transition: all 50ms ease-in-out;
+    transition: all 110ms ease-in-out;
 
 }
 
@@ -172,12 +173,14 @@ body{
     perspective: 20px;
     transform:  translate(-50%, -50%) ;
 
-    transition: all 0.15s ease-in-out;
+    transition: all 200ms ease-in-out;
 
 }
 
 
 .Title{
+    white-space: pre-line;
+
     color: rgba(255, 255, 255, 0.74) ;
 
     text-shadow: #000000 0.1em 0.1em 1em;
@@ -204,6 +207,8 @@ body{
 }
 
 .Content{
+    white-space: pre-line;
+
     font-size: 20px;
 
     text-shadow: #000000 0.1em 0.1em 1em;

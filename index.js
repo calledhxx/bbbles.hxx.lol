@@ -88,30 +88,6 @@ let Squares = [
 
     },
     {
-        Name:"散文集：短",
-        Details:"Hxx的個人散文專輯。",
-        Image:"",
-        Page:"/f/fshort.json",
-        Color: "4699d9",
-
-        states:[
-            ["😶‍🌫️","羞羞"],
-            ["😖","腦羞"],
-
-        ],
-
-        id : "fshort"
-    },
-    {
-        Name:"散文集：長",
-        Details:"Hxx的個人散文專輯。",
-        Image:"",
-        Page:"/f/flong.json",
-        Color: "d94646",
-
-        id : "flong"
-    },
-    {
         Name:"Minecraft",
         Details:"Hxx的遊玩Minecraft的紀錄。",
         Image:"/f/img/minecraft.png",
@@ -330,6 +306,19 @@ let Squares = [
         ],
 
         id : "potato2"
+    },
+    {
+        Name:"愛情媒體",
+        Details:"充滿愛意的多元媒體，誰抵抗的著？",
+        Image:"",
+        Page:"/f/LOVE.json",
+        Color: "4a3d9f",
+
+        states:[
+            ["💖","愛"],
+        ],
+
+        id : "love"
     },
 ]
 
