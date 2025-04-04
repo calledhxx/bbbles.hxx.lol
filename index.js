@@ -749,7 +749,8 @@ let a = async function(){
 
     //
 
-     tweenPos(document.getElementById("BackGround"),-MidX*20,-MidY*20,3,.1);
+    document.getElementById("BackGround").style.backgroundPositionX = String(-MidX*20)+"px";
+    document.getElementById("BackGround").style.backgroundPositionY = String(-MidY*20)+"px";
 
     //
     for (let y = 0;y<Bubbles.length;y++) {
