@@ -588,7 +588,7 @@ let LimSquares = {
     }
 }
 
-let creatBubble = function(BubbleSqr){ //Create???
+let creatBubble = async function(BubbleSqr){ //Create???
     let BubblesTotal= 0;
     for (let _y =0;_y<Bubbles.length; _y++){
         for (let _x=0;_x<Bubbles[_y].length; _x++) BubblesTotal++ ;
@@ -708,6 +708,10 @@ let creatBubble = function(BubbleSqr){ //Create???
             break;
         }
     }
+
+    await sleep(120);
+
+    a();
 }
 
 let a = async function(){
@@ -996,7 +1000,6 @@ document.addEventListener("DOMContentLoaded",   async function(){
 
         button.style.boxShadow = "0 0  30px 3px  #"+hex(Squares[i].Color,"111111", +1);
 
-
         button.style.left = window.innerWidth/2+"px";
         button.style.top = window.innerHeight/2+"px";
 
@@ -1032,12 +1035,16 @@ document.addEventListener("DOMContentLoaded",   async function(){
 
 
         document.getElementById("Bubbles").appendChild(button);
+
+
+
     }
 
 
     //document.getElementsByClassName(Bubbles[y][x])[0].style.left = -MidX*55+XfirstPix+X+"px";
     //document.getElementsByClassName(Bubbles[y][x])[0].style.top = -MidY*55+YfirstPix+Y+"px";
 
+    await sleep(120);
 
     await a();
 
@@ -1608,11 +1615,10 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
             atSquare = -1;
         }
 
-        if(event.code === "KeyL" && !lMSL){
+        if(event.code === "KeyL" ){
             lMSL++;
             MessageIt("林...林....林亮教！","你觸發了不該觸發的東西...");
             creatBubble(LimSquares["msl"]);
-            a();
         }
     });
 
