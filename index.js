@@ -1,5 +1,12 @@
 //CALLEDHXX Nov/2024
 
+let Kards = [
+    {
+        Name : "火星",
+        Color : "af5116"
+    }
+];
+
 let Squares = [
     {
 
@@ -331,6 +338,8 @@ let Bubbles = [
 let BubbleInfos = [
 
 ];
+
+let StopIndex = 0;
 
 let onPhone = 0;
 
@@ -714,7 +723,12 @@ let creatBubble = async function(BubbleSqr){ //Create???
     a();
 }
 
+let mtX = 0;
+let mtY = 0;
+
 let a = async function(){
+
+
     let X = 0;
     let Y = 0;
 
@@ -802,8 +816,8 @@ let a = async function(){
             //+ (Number(document.getElementsByClassName(Bubbles[y][x])[0].style.width.substring(0,document.getElementsByClassName(Bubbles[y][x])[0].style.width.length-2)))/5
             //+  (Number(document.getElementsByClassName(Bubbles[y][x])[0].style.height.substring(0,document.getElementsByClassName(Bubbles[y][x])[0].style.height.length-2)))/5
 
-            document.getElementsByClassName(Bubbles[y][x])[0].style.left = String(-MidX*(55+onPhone*50)+XfirstPix+X - CX)+"px";
-            document.getElementsByClassName(Bubbles[y][x])[0].style.top = String(-MidY*(55+onPhone*50)+YfirstPix+Y + disY + EasY - CY)+"px";
+            document.getElementsByClassName(Bubbles[y][x])[0].style.left = String(mtX-MidX*(55+onPhone*50)+XfirstPix+X - CX)+"px";
+            document.getElementsByClassName(Bubbles[y][x])[0].style.top = String(mtY-MidY*(55+onPhone*50)+YfirstPix+Y + disY + EasY - CY)+"px";
 
             // tweenMove(document.getElementsByClassName(Bubbles[y][x])[0]
             //     , -MidX*(55+onPhone*50)+XfirstPix+X - CX
@@ -1082,6 +1096,7 @@ document.addEventListener("DOMContentLoaded",   async function(){
 
         //todo
     });
+
 });
 
 
@@ -1207,13 +1222,10 @@ async function ent(a){
         await sleep(50);
 
 
-        document.getElementById("Card").style.height = "auto";
-        document.getElementById("Card").style.width = "auto";
 
-         tweenSize(document.getElementById("Card"),
-             BubbleXSize,
-             BubbleYSize
-            ,.1,1);
+
+        document.getElementById("Card").style.width= String(BubbleXSize)+"px";
+        document.getElementById("Card").style.height= String(BubbleYSize)+"px";
 
 
         // tweenMove(document.getElementById("Card"),window.innerWidth/2,window.innerHeight/2,1,10);
@@ -1400,12 +1412,25 @@ let isHolding = false;
 let X0 = 0;
 let Y0 = 0;
 
+let IfInSomewhere = function(zzz,Id,Class,itself){
+    if (zzz) {
+        if(zzz.id === "body")return false;
+    }else{
+        return false;
+    }
+
+    if ( ((zzz.id ? zzz.id === Id : false) || (zzz.classList[0] ? zzz.classList[0] === Class : false)) && itself){
+        return true;
+    }else{
+        return IfInSomewhere(zzz.parentElement,Id,Class,true);
+    }
+}
 
 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
     onPhone = 1;
 
-    BubbleXSize =  900;
-    BubbleYSize = 1520;
+    BubbleXSize =  800;
+    BubbleYSize = 1320;
 
     document.addEventListener('touchstart', (m) => {
 
@@ -1494,37 +1519,25 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
         
         isHolding = false;
         if ((!hasBeenMoved || inUi )&& !m.button)  {
-
-            if (m.target.classList[0] !== "MessageTouchBox")
-            {
-                let sa = function(zzz){
-
-                    if (zzz) {
-                        if(zzz.id === "body")return false;
-                    }else{
-                        return false;
-                    }
-
-                    if (zzz.id === "Card" ){
-
-                        return true;
-                    }else{
-
-                        return sa( zzz.parentElement);
-                    }
-                }
-                if (sa( m.target)){
+            if (
+                !IfInSomewhere(m.target,null,"MessageTouchBox",true)
+            ){
+                if (IfInSomewhere(m.target,"Card",null,true)){
 
                 }else{
-
-                    ent();
+                    if (StopIndex === 0) ent();
                 }
+
             }
 
         }
 
     });
 }else{
+
+
+
+
     document.addEventListener('mousedown', (m) => {
         
 
@@ -1615,6 +1628,7 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
             atSquare = -1;
         }
 
+
         if(event.code === "KeyL" ){
             lMSL++;
             MessageIt("林...林....林亮教！","你觸發了不該觸發的東西...");
@@ -1622,37 +1636,20 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
         }
     });
 
-    document.addEventListener('mouseup', (m) => {
 
+    document.addEventListener('mouseup', async function(m){
         isHolding = false;
         if ((!hasBeenMoved || inUi )&& !m.button)  {
-
-            if (m.target.classList[0] !== "MessageTouchBox")
-            {
-                let sa = function(zzz){
-
-                    if (zzz) {
-                        if(zzz.id === "body")return false;
-                    }else{
-                        return false;
-                    }
-
-                    if (zzz.id === "Card" ){
-
-                        return true;
-                    }else{
-
-                        return sa( zzz.parentElement);
-                    }
-                }
-                if (sa( m.target)){
+            if (
+                !IfInSomewhere(m.target,null,"MessageTouchBox",true)
+            ){
+                if (IfInSomewhere(m.target,"Card",null,true)){
 
                 }else{
-
-                    ent();
+                    if (StopIndex === 0) ent();
                 }
-            }
 
+            }
         }
 
     });
@@ -1671,9 +1668,7 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
     }
 
     document.addEventListener('mousemove', (m) => {
-
-
-        if (isHolding){
+        if (isHolding && StopIndex === 0){
             if (inUi){
                 X0 = m.clientX;
                 Y0 = m.clientY;
@@ -1805,7 +1800,11 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
 }
 
 window.addEventListener('resize', function() {
-    a();
-    ent(true);
+    switch (StopIndex){
+        case 0:{
+            a();
+            ent(true);
+        }
+    }
 
 });
