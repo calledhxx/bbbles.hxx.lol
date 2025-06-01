@@ -327,6 +327,19 @@ let Squares = [
 
         id : "love"
     },
+    {
+        Name:"泡泡破了",
+        Details:"這部網站之後的方向。",
+        Image:"",
+        Page:"/f/bub.json",
+        Color: "872c2c",
+
+        states:[
+            ["😗","之後..."],
+        ],
+
+        id : "bub"
+    },
 ]
 
 let BubbleXSize = 900;
@@ -973,6 +986,7 @@ document.addEventListener("DOMContentLoaded",   async function(){
         document.getElementById("MessagesCase").style.height = "260px";
     }
 
+    MessageIt("這地方生灰塵了","鴨鴨說：「看來這地方終究還是會被拋棄...」，詳細內容歡迎至泡泡內查看！");
 
     MessageIt("我們的餅乾 Cookie","本網站直接紀錄使用者的動作至Cookie裡，若有需求者，可直接清除本網站的Cookie。");
 
