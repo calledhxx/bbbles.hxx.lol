@@ -1634,7 +1634,7 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
         }
         if (event.code === "KeyC" && event.ctrlKey && !inUi) {
             MessageIt("泡泡超連結！","已複製 「"+ BubbleInfos[atSquare].Name +"」的超連結。")
-            navigator.clipboard.writeText("https://hxx.lol/?bubble="+BubbleInfos[atSquare].id);
+            navigator.clipboard.writeText("https://bubbles.hxx.lol/?bubble="+BubbleInfos[atSquare].id);
             atSquare = -1;
         }
 
